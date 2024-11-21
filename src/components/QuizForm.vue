@@ -1,50 +1,68 @@
 <script setup lang="ts">
+import QuestionRadio from '@/components/QuestionRadio.vue'
 import { computed, ref } from 'vue'
 
 const cheval = ref<string | null>(null)
 const chat = ref<string | null>(null)
 const capitale = ref<string | null>(null)
-const filled = computed<boolean>(() => cheval.value !== null && chat.value !== null && capitale.value!== null)
+const filled = computed<boolean>(
+  () => cheval.value !== null && chat.value !== null && capitale.value !== null,
+)
+const annee = ref<string | null>(null)
 
 function reset(event: Event): void {
   event.preventDefault()
-cheval.value = null
-chat.value = null
-capitale.value = null
+  cheval.value = null
+  chat.value = null
+  capitale.value = null
+  annee.value = null
 }
 
 function submit(event: Event): void {
   event.preventDefault()
-  let score =0
+  let score = 0
   const max_score = 3
   if (filled.value) {
+    if (cheval.value == 'blanc') {
+      score += 1
+    }
+    //il faut mettre une parenthèse après le if pour dire sur quoi fait le if
+    //les accolades permettent de dire quoi faire si le if est juste
+    if (chat.value == '4') {
+      score += 1
+    }
+    // les accolade autour de "chat.value" sont nécessaires seulement lorsque on met du texte et que l'on veut qu'il affiche la valeur enregistrée dans "chat.value"
 
-  if (cheval.value== 'blanc') {
-    score +=1
-  }
-  //il faut mettre une parenthèse après le if pour dire sur quoi fait le if
-  //les accolades permettent de dire quoi faire si le if est juste
-  if (chat.value=='4') {
-    score +=1
-  }
-  // les accolade autour de "chat.value" sont nécessaires seulement lorsque on met du texte et que l'on veut qu'il affiche la valeur enregistrée dans "chat.value"
+    if (capitale.value == 'Berne') {
+      score += 1
+    }
 
-  if (capitale.value =='Berne'){
-    score +=1
-  }
+    if (annee.value == '365') {
+      score += 1
+    }
 
-  if (score == max_score) {
-    alert('Vous avez fait tout juste! Bravo')
+    if (score == max_score) {
+      alert('Vous avez fait tout juste! Bravo')
+    } else {
+      alert(`Vous avez fait ${score} bonnes réponses`)
+    }
   }
-  else {alert (`Vous avez fait ${score} bonnes réponses`)}
-
-  }
-  }
-
+}
 </script>
 
 <template>
   <form @submit="submit">
+    <QuestionRadio
+      id="année"
+      v-model="annee"
+      text="Combien de jours comporte une année non-bissextile ?"
+      :options="[
+        { value: '265', text: '265' },
+        { value: '365', text: '365' },
+        { value: '100', text: '100' },
+        { value: '366', text: '366' },
+      ]"
+    />
     De quelle couleur est le cheval blanc de Napoléon ?
     <div class="form-check">
       <input
