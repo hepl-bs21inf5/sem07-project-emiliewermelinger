@@ -4,16 +4,43 @@ import { computed, ref } from 'vue'
 const cheval = ref<string | null>(null)
 const chat = ref<string | null>(null)
 const capitale = ref<string | null>(null)
-const filled = computed<boolean>(() => cheval.value !== null)
+const filled = computed<boolean>(() => cheval.value !== null && chat.value !== null && capitale.value!== null)
+
+function reset(event: Event): void {
+  event.preventDefault()
+cheval.value = null
+chat.value = null
+capitale.value = null
+}
 
 function submit(event: Event): void {
   event.preventDefault()
+  let score =0
+  const max_score = 3
   if (filled.value) {
-    alert(
-      `Vous avez choisi la couleur ${cheval.value},avez dit que le chat a ${chat.value} pattes et que la capitale de la Suisse est ${capitale.value}`,
-    )
+
+  if (cheval.value== 'blanc') {
+    score +=1
   }
-}
+  //il faut mettre une parenthèse après le if pour dire sur quoi fait le if
+  //les accolades permettent de dire quoi faire si le if est juste
+  if (chat.value=='4') {
+    score +=1
+  }
+  // les accolade autour de "chat.value" sont nécessaires seulement lorsque on met du texte et que l'on veut qu'il affiche la valeur enregistrée dans "chat.value"
+
+  if (capitale.value =='Berne'){
+    score +=1
+  }
+
+  if (score == max_score) {
+    alert('Vous avez fait tout juste! Bravo')
+  }
+  else {alert (`Vous avez fait ${score} bonnes réponses`)}
+
+  }
+  }
+
 </script>
 
 <template>
@@ -63,9 +90,6 @@ function submit(event: Event): void {
       />
       <label class="form-check-label" for="chevalNoir">Noir</label>
     </div>
-    <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
-  </form>
-  <form @submit="submit">
     Combien de pattes a un chat ?
     <div class="form-check">
       <input
@@ -111,9 +135,6 @@ function submit(event: Event): void {
       />
       <label class="form-check-label" for="pattes3">4</label>
     </div>
-    <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
-  </form>
-  <form @submit="submit">
     Quelle est la capitale de la Suisse ?
     <div class="form-check">
       <input
@@ -160,5 +181,6 @@ function submit(event: Event): void {
       <label class="form-check-label" for="capitale3">Berne</label>
     </div>
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
+    <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
   </form>
 </template>
