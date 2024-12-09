@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import QuestionRadio from '@/components/QuestionRadio.vue'
+import QuestionText from './QuestionText.vue'
 import { computed, ref } from 'vue'
 
 const cheval = ref<string | null>(null)
@@ -74,17 +75,14 @@ function submit(event: Event): void {
         { value: 'noir', text: 'Noir' },
       ]"
     />
-    <QuestionRadio
-      id="pattes"
+
+    <QuestionText
+      id="chat"
       v-model="chat"
       text="Combien de pattes a un chat ?"
-      :options="[
-        { value: '5', text: '5' },
-        { value: '2', text: '2' },
-        { value: '7', text: '7' },
-        { value: '4', text: '4' },
-      ]"
+      placeholder="Veuillez saisir un nombre"
     />
+<!--pourquoi doit-on modifier le v-model ? peut-on laisser le même que celui utilisé lors de la questionradio afin que la comptabilissation des points fonctionne ?-->
     <QuestionRadio
       id="capitale"
       v-model="capitale"

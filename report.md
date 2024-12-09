@@ -2,20 +2,20 @@ Séminaire 07 - Projet
 
 [Emilie Wermelinger]
 
-## Temps passé
+## Journal de bord
 
 ## Semaine 1 projet
 
 ### Tâche/ Temps estimé/ Temps réel
 
 - installation de l'extension et création/modification des dossiers pour le projet
-  estimé: 25 min/temps réel : 45 min
+  temps estimé: 25 min/temps réel : 45 min
 - modification du quizz/ajout de questions et de réponses
-  estimé: 35 min/temps réel : 1h
+  temps estimé: 35 min/temps réel : 1h
 - affichage du score/message et bouton réinitialiser à la fin du quizz
-  estimé: 45 min/temps réel : 1h15
+  temps estimé: 45 min/temps réel : 1h15
 - modification des boutons (css)
-  estimé: 30 min/temps réel : 40 min
+  temps estimé: 30 min/temps réel : 40 min
 
 ### Commentaire:
 
@@ -55,8 +55,9 @@ Commentaires ajoutés dans le code src->components->QuizForm.vue qui aide à com
 
 ### Tâche/ Temps estimé/ Temps réel
 
-- Créer nouveau fichier appelé QuestionRadio.vue et y ajouter le code estimé : 10 min/temps réel 10 min
+- Créer nouveau fichier appelé QuestionRadio.vue et y ajouter le code 
+  temps estimé : 10 min/temps réel 10 min
 - Créer une nouvelle question en faisant appel à QuestionRadio
-  estimé : 15 min/ temps réel 25 min
+  temps estimé : 15 min/ temps réel 25 min
 - Modifier les questions afin qu'elles fassent toutes appel au code de QuestionRadio
-  estimé : 35 min/ temps réel 20 min
+  temps estimé : 35 min/ temps réel 20 min
