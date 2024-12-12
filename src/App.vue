@@ -27,6 +27,10 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class="bi bi-bookmark-heart-fill"></i>
               À propos
             </RouterLink>
+            <RouterLink class="nav-link" to="/trivia"> <!--nouvelles lignes 30,31,32,33-->
+              <i class="bi bi-question"></i>
+              Trivia
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -34,3 +38,4 @@ import { RouterLink, RouterView } from 'vue-router'
   </nav>
   <RouterView />
 </template>
+
