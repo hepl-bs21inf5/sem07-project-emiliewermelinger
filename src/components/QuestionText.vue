@@ -1,14 +1,22 @@
 <script setup lang="ts">
-import { defineModel } from 'vue'
-const model = defineModel<string | null>()
+  import { defineModel, defineProps, type PropType } from "vue";
+
+  const model = defineModel<string | null>();
+  const props = defineProps({
+    id: { type: String, required: true },
+    text: { type: String, required: true },
+    placeholder:{type: String, default : "Veuillez saisir une réponse"}
+  });
 </script>
 
 <template>
-  <label for="exampleFormControlInput" class="form-label"> Combien de pattes a un chat ? </label>
-  <input
-    id="exampleFormControlInput"
-    v-model="model"
-    class="form-control"
-    placeholder="Veuillez saisir un nombre"
+  <div>
+    <label for="exampleFormControlInput" class="form-label">{{ props.text }}</label>
+    <input
+      id="exampleFormControlInput"
+      v-model="model"
+      class="form-control"
+      :placeholder="props.placeholder"
   />
+</div>
 </template>

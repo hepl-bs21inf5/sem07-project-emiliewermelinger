@@ -1,7 +1,7 @@
 <script setup lang="ts">
-  import { defineModel, defineProps, type PropType } from "vue";
+  import { ref,watch, type PropType } from "vue";
 
-  const model = defineModel<string | null>();
+  const model = defineModel<boolean>();
   const props = defineProps({
     id: { type: String, required: true },
     text: { type: String, required: true },
@@ -9,7 +9,18 @@
       type: Array as PropType<Array<{ value: string; text: string }>>,
       required: true,
     },
+    answer:{type: String,required: true,}
   });
+
+  const value= ref<string| null>(null)
+
+  watch(
+    value,
+    (newValue)=>{
+      model.value=newValue===props.answer;
+    },
+    {immediate: true},
+  )
 </script>
 
 <template>
@@ -17,7 +28,7 @@
   <div v-for="option in props.options" :key="option.value" class="form-check">
     <input
       :id="`${props.id}-${option.value}`"
-      v-model="model"
+      v-model="value"
       class="form-check-input"
       type="radio"
       :name="props.id"

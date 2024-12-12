@@ -10,6 +10,8 @@ const filled = computed<boolean>(
   () => cheval.value !== null && chat.value !== null && capitale.value !== null,
 )
 const annee = ref<string | null>(null)
+const correctAnswers= ref<boolean[]>([])
+
 
 function reset(event: Event): void {
   event.preventDefault()
@@ -55,7 +57,8 @@ function submit(event: Event): void {
   <form @submit="submit">
     <QuestionRadio
       id="année"
-      v-model="annee"
+      v-model="correctAnswers[0]"
+      answer="365"
       text="Combien de jours comporte une année non-bissextile ?"
       :options="[
         { value: '265', text: '265' },
@@ -66,7 +69,8 @@ function submit(event: Event): void {
     />
     <QuestionRadio
       id="chevalBlanc"
-      v-model="cheval"
+      v-model="correctAnswers[1]"
+      answer="blanc"
       text="De quelle couleur est le cheval blanc de Napoléon ?"
       :options="[
         { value: 'blanc', text: 'Blanc' },
@@ -80,12 +84,12 @@ function submit(event: Event): void {
       id="chat"
       v-model="chat"
       text="Combien de pattes a un chat ?"
-      placeholder="Veuillez saisir un nombre"
     />
-<!--pourquoi doit-on modifier le v-model ? peut-on laisser le même que celui utilisé lors de la questionradio afin que la comptabilissation des points fonctionne ?-->
+
     <QuestionRadio
       id="capitale"
-      v-model="capitale"
+      v-model="correctAnswers[2]"
+      answer="Berne"
       text=" Quelle est la capitale de la Suisse ?"
       :options="[
         { value: 'Berne', text: 'Berne' },
@@ -96,5 +100,7 @@ function submit(event: Event): void {
     />
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
     <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+    <div>Réponses correctes:{{ correctAnswers }}</div>
   </form>
 </template>
+
