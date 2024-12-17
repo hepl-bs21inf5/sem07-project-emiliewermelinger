@@ -11,6 +11,8 @@ const filled = computed<boolean>(
 )
 const annee = ref<string | null>(null)
 const correctAnswers= ref<boolean[]>([])
+const score = computed<number>(() => correctAnswers.value.filter((value) => value).length);
+const totalScore =computed<number>(() => correctAnswers.value.length);
 
 
 function reset(event: Event): void {
@@ -23,31 +25,19 @@ function reset(event: Event): void {
 
 function submit(event: Event): void {
   event.preventDefault()
-  let score = 0
-  const max_score = 4
+  correctAnswers.value = []; // Réinitialise le tableau des réponses correctes
+
+  // Vérifie chaque réponse et met à jour correctAnswers
+  correctAnswers.value[0] = annee.value === '365';
+  correctAnswers.value[1] = cheval.value === 'blanc';
+  correctAnswers.value[2] = capitale.value === 'Berne';
+  correctAnswers.value[3] = chat.value === '4';
+
   if (filled.value) {
-    if (cheval.value == 'blanc') {
-      score += 1
-    }
-    //il faut mettre une parenthèse après le if pour dire sur quoi fait le if
-    //les accolades permettent de dire quoi faire si le if est juste
-    if (chat.value == '4') {
-      score += 1
-    }
-    // les accolade autour de "chat.value" sont nécessaires seulement lorsque on met du texte et que l'on veut qu'il affiche la valeur enregistrée dans "chat.value"
-
-    if (capitale.value == 'Berne') {
-      score += 1
-    }
-
-    if (annee.value == '365') {
-      score += 1
-    }
-
-    if (score == max_score) {
+    if (score.value === totalScore.value) {
       alert('Vous avez fait tout juste! Bravo')
     } else {
-      alert(`Vous avez fait ${score} bonnes réponses`)
+      alert(`Vous avez fait ${score.value} bonnes réponses`)
     }
   }
 }
@@ -101,6 +91,7 @@ function submit(event: Event): void {
     <button class="btn btn-primary" :class="{ disabled: !filled }" type="submit">Terminer</button>
     <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
     <div>Réponses correctes:{{ correctAnswers }}</div>
+    <div>Score : {{ score }} / {{ totalScore }}</div>
   </form>
 </template>
 
