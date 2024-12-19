@@ -10,7 +10,7 @@ const questions = ref<
   }[]
 >([])
 
-fetch('https://opentdb.com/api.php?amount=10&type=multiple')
+fetch('https://opentdb.com/api.php?amount=10&category=14&difficulty=easy')
   .then((response) => response.json())
   .then((data) => (questions.value = data.results))
 </script>

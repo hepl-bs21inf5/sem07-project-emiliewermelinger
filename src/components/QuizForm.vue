@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import QuestionRadio from '@/components/QuestionRadio.vue'
+import QuestionCheckbox from './QuestionCheckbox.vue'
 import QuestionText from './QuestionText.vue'
 import { QuestionState } from '@/utils/models'
 import { computed, ref } from 'vue'
 
 
-//const cheval = ref<string | null>(null)
-//const chat = ref<string | null>(null)
-//const capitale = ref<string | null>(null)
+
 const filled = computed<boolean>(
   () => questionStates.value.every(state => state === QuestionState.Fill),
 )
@@ -16,8 +15,7 @@ const submitted = computed<boolean>(() =>
     state => state === QuestionState.Correct || state === QuestionState.Wrong,
   ),
 )
-//const annee = ref<string | null>(null)
-//const correctAnswers= ref<boolean[]>([])
+
 const questionStates = ref<QuestionState[]>([])
 const score = computed<number>(() =>
     questionStates.value.filter(state => state === QuestionState.Correct)
@@ -85,6 +83,20 @@ function submit(event: Event): void {
         { value: 'Genève', text: 'Genève' },
       ]"
     />
+    <QuestionCheckbox
+      id="continents"
+      v-model="questionStates[4]"
+      :answer="['Afrique', 'Europe']"
+      text="Quels continents font partie du monde ?"
+      :options="[
+        { value: 'Afrique', text: 'Afrique' },
+        { value: 'Asie', text: 'Asie' },
+        { value: 'Europe', text: 'Europe' },
+        { value: 'Atlantide', text: 'Atlantide' },
+      ]"
+      answer-detail="Les continents corrects sont Afrique et Europe."
+/>
+
     <br />
     <button
       class="btn btn-primary"
