@@ -17,7 +17,8 @@
     model,
     (newModel) => {
       if (newModel === QuestionState.Submit) {
-        model.value = value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong
+        const isCorrect = props.answer.includes(value.value?.toLowerCase() ||'');
+        model.value = isCorrect? QuestionState.Correct : QuestionState.Wrong
     } else if (newModel === QuestionState.Empty) {
       value.value = null
     }
