@@ -65,7 +65,7 @@ function submit(event: Event): void {
     <QuestionText
       id="chat"
       v-model="questionStates[2]"
-      answer="4"
+      answer="4" or quatre
       text="Combien de pattes a un chat ?"
       answer-detail="Le chat est un mammifère quadrupède."
 
