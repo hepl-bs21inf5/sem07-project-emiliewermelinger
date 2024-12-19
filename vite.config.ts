@@ -6,7 +6,7 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/sem07-projet-{pseudo}/",
+  base: "/sem07-project-emiliewermelinger/",
   plugins: [
     vue(),
     vueDevTools(),
