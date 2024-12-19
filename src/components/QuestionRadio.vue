@@ -10,6 +10,7 @@
       type: Array as PropType<Array<{ value: string; text: string }>>,
       required: true,
     },
+    answerDetail:{type: String, default:"Aucune information complémentaire"},
     answer:{type: String,required: true,}
   });
 
@@ -20,6 +21,8 @@
     (newModel) => {
       if (newModel === QuestionState.Submit) {
         model.value = value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong
+    }else if (newModel === QuestionState.Empty) {
+      value.value = null
     }
   },
 );
@@ -55,4 +58,18 @@
       {{ option.text }}
     </label>
   </div>
+  <div
+    v-if="model === QuestionState.Correct || model === QuestionState.Wrong"
+  >
+    <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
+    <p v-else class="text-danger">
+      Faux ! La réponse était : {{ props.answer }}
+    </p>
+    <p class="blockquote-footer">{{ props.answerDetail }}</p>
+  </div>
 </template>
+<style scoped>
+  .text-danger {
+    color: purple !important;
+  }
+</style>

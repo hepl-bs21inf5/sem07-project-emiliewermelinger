@@ -69,6 +69,8 @@ function submit(event: Event): void {
       v-model="questionStates[2]"
       answer="4"
       text="Combien de pattes a un chat ?"
+      answer-detail="Le chat est un mammifère quadrupède."
+
     />
 
     <QuestionRadio

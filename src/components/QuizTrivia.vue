@@ -22,7 +22,7 @@ fetch('https://opentdb.com/api.php?amount=10&type=multiple')
       :id="index.toString()"
       :key="index"
       :text="question.question"
-      :answer="question.correct_answer" 
+      :answer="question.correct_answer"
       :options="[
         { value: question.correct_answer, text: question.correct_answer },
         ...question.incorrect_answers.map((answer) => ({
