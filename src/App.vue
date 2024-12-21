@@ -27,9 +27,13 @@ import { RouterLink, RouterView } from 'vue-router'
               <i class="bi bi-bookmark-heart-fill"></i>
               À propos
             </RouterLink>
-            <RouterLink class="nav-link" to="/trivia"> <!--nouvelles lignes 30,31,32,33-->
+            <RouterLink class="nav-link" to="/trivia">
               <i class="bi bi-question"></i>
               Trivia
+            </RouterLink>
+            <RouterLink class="nav-link" to="/Lausanne">
+              <i class="bi bi-question"></i>
+              Lausanne
             </RouterLink>
           </li>
         </ul>
