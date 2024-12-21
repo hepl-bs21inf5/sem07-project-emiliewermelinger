@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import QuestionRadio from '@/components/QuestionRadio.vue'
 import QuestionCheckbox from './QuestionCheckbox.vue'
+import QuestionSelect from './QuestionSelect.vue'
 import QuestionText from './QuestionText.vue'
 import { QuestionState } from '@/utils/models'
 import { computed, ref } from 'vue'
@@ -83,9 +84,22 @@ function submit(event: Event): void {
         { value: 'Genève', text: 'Genève' },
       ]"
     />
+    <QuestionSelect
+      id="questionFavori"
+      v-model="questionStates[4]"
+      answer="café"
+      text="Quelle est votre boisson préférée ?"
+      :options="[
+        { value: 'café', text: 'Café' },
+        { value: 'thé', text: 'Thé' },
+        { value: 'eau', text: 'Eau' },
+        { value: 'jus', text: 'Jus' }
+      ]"
+    />
+
     <QuestionCheckbox
       id="continents"
-      v-model="questionStates[4]"
+      v-model="questionStates[5]"
       :answer="['Afrique', 'Europe']"
       text="Quels continents font partie du monde ?"
       :options="[
