@@ -4,8 +4,9 @@ import QuestionCheckbox from './QuestionCheckbox.vue'
 import QuestionSelect from './QuestionSelect.vue'
 import QuestionText from './QuestionText.vue'
 import { QuestionState } from '@/utils/models'
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 
+const questionIndices= ref([0, 1, 2]);
 
 
 const filled = computed<boolean>(
@@ -34,23 +35,47 @@ function submit(event: Event): void {
   event.preventDefault()
   questionStates.value = questionStates.value.map(() => QuestionState.Submit)
 }
+
+// Fonction pour mélanger aléatoirement les questions
+const shuffleQuestions = (array:number[]):number[] => {
+  let currentIndex = array.length,
+    randomIndex,
+    temporaryValue
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex -= 1
+    temporaryValue = array[currentIndex]
+    array[currentIndex] = array[randomIndex]
+    array[randomIndex] = temporaryValue
+  }
+  return array
+}
+
+onMounted(() => {
+  questionIndices.value = shuffleQuestions([...questionIndices.value]);
+});
+
 </script>
 
 <template>
   <form @submit="submit">
+    <div v-for="index in questionIndices" :key="index">
+      <!-- Question Radio -->
+      <QuestionRadio
+        v-if="index===0"
+        id="année"
+        v-model="questionStates[0]"
+        answer="365"
+        text="Combien de jours comporte une année non-bissextile ?"
+        :options="[
+          { value: '265', text: '265' },
+          { value: '365', text: '365' },
+          { value: '100', text: '100' },
+          { value: '366', text: '366' },
+        ]"
+      />
     <QuestionRadio
-      id="année"
-      v-model="questionStates[0]"
-      answer="365"
-      text="Combien de jours comporte une année non-bissextile ?"
-      :options="[
-        { value: '265', text: '265' },
-        { value: '365', text: '365' },
-        { value: '100', text: '100' },
-        { value: '366', text: '366' },
-      ]"
-    />
-    <QuestionRadio
+      v-if="index===1"
       id="chevalBlanc"
       v-model="questionStates[1]"
       answer="blanc"
@@ -62,19 +87,10 @@ function submit(event: Event): void {
         { value: 'noir', text: 'Noir' },
       ]"
     />
-
-    <QuestionText
-      id="chat"
-      v-model="questionStates[2]"
-      answer="['4','quatre']"
-      text="Combien de pattes a un chat ?"
-      answer-detail="Le chat est un mammifère quadrupède."
-
-    />
-
     <QuestionRadio
+      v-if="index===2"
       id="capitale"
-      v-model="questionStates[3]"
+      v-model="questionStates[2]"
       answer="Berne"
       text=" Quelle est la capitale de la Suisse ?"
       :options="[
@@ -84,6 +100,18 @@ function submit(event: Event): void {
         { value: 'Genève', text: 'Genève' },
       ]"
     />
+  </div>
+
+    <QuestionText
+      id="chat"
+      v-model="questionStates[3]"
+      answer="['4','quatre']"
+      text="Combien de pattes a un chat ?"
+      answer-detail="Le chat est un mammifère quadrupède."
+
+    />
+
+
     <QuestionSelect
       id="questionFavori"
       v-model="questionStates[4]"
@@ -109,20 +137,20 @@ function submit(event: Event): void {
         { value: 'Atlantide', text: 'Atlantide' },
       ]"
       answer-detail="Les continents corrects sont Afrique et Europe."
-/>
+    />
 
-    <br />
-    <button
-      class="btn btn-primary"
-      :class="{ disabled: !filled }"
-      @click="submit"
-    >
-      Terminer
-    </button>
-    &nbsp;
-    <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
-    <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div> <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
-    <div>Debug états : {{ questionStates }}</div> <!--permet de debug facilement l'application -->
+      <br />
+      <button
+        class="btn btn-primary"
+        :class="{ disabled: !filled }"
+        @click="submit"
+      >
+        Terminer
+      </button>
+      &nbsp;
+      <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+      <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div> <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
+      <div>Debug états : {{ questionStates }}</div> <!--permet de debug facilement l'application -->
   </form>
 </template>
 
