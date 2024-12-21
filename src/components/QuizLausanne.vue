@@ -117,22 +117,22 @@ onMounted(() => {
     <QuestionSelect
       id="tourisme"
       v-model="questionStates[4]"
-      answer="Sa cathédrale"
+      answer="Le siège du comité international olympique"
       text="Lausanne est connue pour :"
       :options="[
-        { value: 'musée olympique', text: 'Le musée olympique' },
+        { value: 'Le siège du comité international olympique', text: 'Le siège du comité international olympique' },
         { value: 'lac', text: 'Le lac' },
         { value: 'chocolat', text: 'Le chocolat du Barbare' },
         { value: 'Sa cathédrale', text: 'Sa cathédrale' }
       ]"
-      answer-detail="Lausanne est connue car c'est la capitale olympique et car elle a une très belle cathédrale"
+      answer-detail="Lausanne est connue car c'est la capitale olympique"
     />
 
     <QuestionCheckbox
       id="metro"
       v-model="questionStates[5]"
       :answer="['m1', 'm2']"
-      text="Comment s'appellent les métro de Lausanne ?"
+      text="Comment s'appellent les métros que l'on peut emprunter à Lausanne ?"
       :options="[
         { value: 'm1', text: 'm1' },
         { value: 'm2', text: 'm2' },
