@@ -18,7 +18,7 @@ const questionIndices = ref(['habitants', 'horloge', 'escalier'])
 const questionDetails = ref<QuestionDetail[]>([
   {
     id: 'horloge',
-    image: "require('./images/horologe_palud.jpg')",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/70/Horloge_Palud%2C_major_Davel_%28cropped%29.jpg",
     answerDetail: "L'horloge a été construite en 1964 puis rénovée en 2005",
   },
 ])
@@ -192,3 +192,5 @@ onMounted(() => {
     <!--permet de debug facilement l'application -->
   </form>
 </template>
+
+
