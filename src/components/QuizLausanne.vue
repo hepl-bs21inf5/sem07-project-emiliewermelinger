@@ -6,25 +6,37 @@ import QuestionText from './QuestionText.vue'
 import { QuestionState } from '@/utils/models'
 import { computed, ref, onMounted } from 'vue'
 
-const questionIndices= ref([0, 1, 2]);
+interface QuestionDetail {
+  id: string
+  answerDetail: string
+  image?: string
+}
 
+//const questionIndices= ref([0, 1, 2]);
+const questionIndices = ref(['habitants', 'horloge', 'escalier'])
 
-const filled = computed<boolean>(
-  () => questionStates.value.every(state => state === QuestionState.Fill),
+const questionDetails = ref<QuestionDetail[]>([
+  {
+    id: 'horloge',
+    answerDetail: "L'horloge a été construite en 1964 puis rénovée en 2005",
+    image: '/images/horloge_palud.jpg',
+  },
+])
+
+const filled = computed<boolean>(() =>
+  questionStates.value.every((state) => state === QuestionState.Fill),
 )
 const submitted = computed<boolean>(() =>
   questionStates.value.every(
-    state => state === QuestionState.Correct || state === QuestionState.Wrong,
+    (state) => state === QuestionState.Correct || state === QuestionState.Wrong,
   ),
 )
 
 const questionStates = ref<QuestionState[]>([])
-const score = computed<number>(() =>
-    questionStates.value.filter(state => state === QuestionState.Correct)
-      .length,
+const score = computed<number>(
+  () => questionStates.value.filter((state) => state === QuestionState.Correct).length,
 )
-const totalScore =computed<number>(() => questionStates.value.length);
-
+const totalScore = computed<number>(() => questionStates.value.length)
 
 function reset(event: Event): void {
   event.preventDefault()
@@ -37,7 +49,7 @@ function submit(event: Event): void {
 }
 
 // Fonction pour mélanger aléatoirement les questions
-const shuffleQuestions = (array:number[]):number[] => {
+const shuffleQuestions = (array: string[]): string[] => {
   let currentIndex = array.length,
     randomIndex,
     temporaryValue
@@ -51,20 +63,38 @@ const shuffleQuestions = (array:number[]):number[] => {
   return array
 }
 
-onMounted(() => {
-  questionIndices.value = shuffleQuestions([...questionIndices.value]);
-});
+const getQuestionDetails = (id: string): QuestionDetail | undefined => {
+  return questionDetails.value.find((detail) => detail.id === id)
+}
 
+onMounted(() => {
+  questionIndices.value = shuffleQuestions([...questionIndices.value])
+  questionStates.value = new Array(questionIndices.value.length).fill(QuestionState.Empty)
+})
 </script>
 
 <template>
   <form @submit="submit">
-    <div v-for="index in questionIndices" :key="index">
+    <div v-for="(id, idx) in questionIndices" :key="id">
+      <div
+        v-if="
+          questionStates[idx] === QuestionState.Correct ||
+          questionStates[idx] === QuestionState.Wrong
+        "
+      >
+        <h4>Détails de la question {{ idx + 1 }}</h4>
+        <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
+        <img
+          v-if="getQuestionDetails(id)?.image"
+          :src="getQuestionDetails(id)?.image"
+          alt="Détail de la réponse"
+        />
+      </div>
       <!-- Question Radio -->
       <QuestionRadio
-        v-if="index===0"
+        v-if="id === 'habitants'"
         id="habitants"
-        v-model="questionStates[0]"
+        v-model="questionStates[idx]"
         answer="140619"
         text="Combien y avait t-il d'habitants à Lausanne en 2021?"
         :options="[
@@ -75,35 +105,35 @@ onMounted(() => {
         ]"
         answer-detail="En 2021 il y avait 140619 habitants à Lausanne, aujourd'hui il y en a plus de 150000"
       />
-    <QuestionRadio
-      v-if="index===1"
-      id="horloge"
-      v-model="questionStates[1]"
-      answer="1964"
-      text="En quelle année a été construite l'horloge parlante de la place de la Palud?"
-      :options="[
-        { value: '1964', text: '1964' },
-        { value: '1970', text: '1970' },
-        { value: '1965', text: '1965' },
-        { value: '1963', text: '1963' },
-      ]"
-      answer-detail="L'horloge a été construite en 1964 puis rénovée en 2005"
-    />
-    <QuestionRadio
-      v-if="index===2"
-      id="escalier"
-      v-model="questionStates[2]"
-      answer="302"
-      text="Combien de marches a la tour de Sauvabelin ?"
-      :options="[
-        { value: '302', text: '302' },
-        { value: '307', text: '307' },
-        { value: '299', text: '299' },
-        { value: '296', text: '296' },
-      ]"
-      answer-detail="La tour de Sauvabelin a 302 marches d'escalier"
-    />
-  </div>
+      <QuestionRadio
+        v-if="id === 'horloge'"
+        id="horloge"
+        v-model="questionStates[idx]"
+        answer="1964"
+        text="En quelle année a été construite l'horloge parlante de la place de la Palud?"
+        :options="[
+          { value: '1964', text: '1964' },
+          { value: '1970', text: '1970' },
+          { value: '1965', text: '1965' },
+          { value: '1963', text: '1963' },
+        ]"
+        answer-detail="L'horloge a été construite en 1964 puis rénovée en 2005"
+      />
+      <QuestionRadio
+        v-if="id === 'escalier'"
+        id="escalier"
+        v-model="questionStates[idx]"
+        answer="302"
+        text="Combien de marches a la tour de Sauvabelin ?"
+        :options="[
+          { value: '302', text: '302' },
+          { value: '307', text: '307' },
+          { value: '299', text: '299' },
+          { value: '296', text: '296' },
+        ]"
+        answer-detail="La tour de Sauvabelin a 302 marches d'escalier"
+      />
+    </div>
 
     <QuestionText
       id="lac"
@@ -111,7 +141,6 @@ onMounted(() => {
       answer="['leman','léman','le lac léman','le lac leman']"
       text="Comment s'appelle le lac qui touche Lausanne ?"
       answer-detail="Contrairement à ce que certains disent, le vrai nom du lac est le lac léman et non le lac de Genève"
-
     />
 
     <QuestionSelect
@@ -120,10 +149,13 @@ onMounted(() => {
       answer="Le siège du comité international olympique"
       text="Lausanne est connue pour :"
       :options="[
-        { value: 'Le siège du comité international olympique', text: 'Le siège du comité international olympique' },
+        {
+          value: 'Le siège du comité international olympique',
+          text: 'Le siège du comité international olympique',
+        },
         { value: 'lac', text: 'Le lac' },
         { value: 'chocolat', text: 'Le chocolat du Barbare' },
-        { value: 'Sa cathédrale', text: 'Sa cathédrale' }
+        { value: 'Sa cathédrale', text: 'Sa cathédrale' },
       ]"
       answer-detail="Lausanne est connue car c'est la capitale olympique"
     />
@@ -142,18 +174,33 @@ onMounted(() => {
       answer-detail="Les métros se nomment m1 et m2. Le m veut dire métro et le numéro est l'ordre dans lequel ils ont été construits "
     />
 
-      <br />
-      <button
-        class="btn btn-primary"
-        :class="{ disabled: !filled }"
-        @click="submit"
-      >
-        Terminer
-      </button>
-      &nbsp;
-      <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
-      <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div> <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
-      <div>Debug états : {{ questionStates }}</div> <!--permet de debug facilement l'application -->
+    <br />
+    <button class="btn btn-primary" :class="{ disabled: !filled }" @click="submit">Terminer</button>
+    &nbsp;
+    <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+    <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
+    <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
+    <div v-if="submitted">
+      <div v-for="(id, idx) in questionIndices" :key="id">
+        <!--<div v-for="(state, index) in questionStates" :key="index">-->
+        <div
+          v-if="
+            questionStates[idx] === QuestionState.Correct ||
+            questionStates[idx] === QuestionState.Wrong
+          "
+        >
+          <h4>Détails de la question {{ idx + 1 }}</h4>
+          <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
+          <img
+            v-if="getQuestionDetails(id)?.image"
+            :src="getQuestionDetails(id)?.image"
+            alt="Détail de la réponse"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div>Debug états : {{ questionStates }}</div>
+    <!--permet de debug facilement l'application -->
   </form>
 </template>
-
