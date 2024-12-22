@@ -89,6 +89,7 @@ onMounted(() => {
           v-if="getQuestionDetails(id)?.image"
           :src="getQuestionDetails(id)?.image"
           alt="Détail de la réponse"
+          class="question-image"
         />
       </div>
       <!-- Question Radio -->
@@ -181,6 +182,7 @@ onMounted(() => {
     <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
     <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
     <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
+
     <div>Debug états : {{ questionStates }}</div>
     <!--permet de debug facilement l'application -->
   </form>

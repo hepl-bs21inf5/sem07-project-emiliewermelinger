@@ -35,3 +35,8 @@
   background-color: #7c65c6;
   border-color: #7c65c6;
 }
+.question-image {
+  max-width: 100%; /* L'image s'ajuste à la largeur du conteneur */
+  height: auto; /*Garde les proportions de l'image*/
+  object-fit: cover;
+}
