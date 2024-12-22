@@ -21,6 +21,15 @@ const questionDetails = ref<QuestionDetail[]>([
     image: "https://upload.wikimedia.org/wikipedia/commons/7/70/Horloge_Palud%2C_major_Davel_%28cropped%29.jpg",
     answerDetail: "L'horloge a été construite en 1964 puis rénovée en 2005",
   },
+  {
+    id: 'escalier',
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Tour_de_Sauvabelin_Lausanne.jpg/520px-Tour_de_Sauvabelin_Lausanne.jpg",
+    answerDetail: "La tour de Sauvabelin a 302 marches d'escalier",
+  },
+  { id: 'habitants',
+    image: '',
+    answerDetail:"En 2021 il y avait 140619 habitants à Lausanne, aujourd'hui il y en a plus de 150000",
+  }
 ])
 
 const filled = computed<boolean>(() =>
@@ -90,9 +99,7 @@ onMounted(() => {
           { value: '125063', text: '125063' },
           { value: '150720', text: '150720' },
           { value: '145015', text: '145015' },
-        ]"
-        answer-detail="En 2021 il y avait 140619 habitants à Lausanne, aujourd'hui il y en a plus de 150000"
-      />
+        ]"/>
       <QuestionRadio
         v-if="id === 'horloge'"
         id="horloge"
@@ -104,9 +111,7 @@ onMounted(() => {
           { value: '1970', text: '1970' },
           { value: '1965', text: '1965' },
           { value: '1963', text: '1963' },
-        ]"
-
-      />
+        ]"/>
       <QuestionRadio
         v-if="id === 'escalier'"
         id="escalier"
@@ -118,9 +123,7 @@ onMounted(() => {
           { value: '307', text: '307' },
           { value: '299', text: '299' },
           { value: '296', text: '296' },
-        ]"
-        answer-detail="La tour de Sauvabelin a 302 marches d'escalier"
-      />
+        ]"/>
       <div
         v-if="
           questionStates[idx] === QuestionState.Correct ||
