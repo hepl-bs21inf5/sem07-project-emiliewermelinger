@@ -40,3 +40,10 @@
   height: auto; /*Garde les proportions de l'image*/
   object-fit: cover;
 }
+
+.answer-detail{
+  color: #ffc547; /* Utilisez la couleur de votre choix */
+  font-weight: bold;
+  font-size: 1.1em;
+}
+

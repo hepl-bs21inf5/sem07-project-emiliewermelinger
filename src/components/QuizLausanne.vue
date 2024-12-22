@@ -8,8 +8,8 @@ import { computed, ref, onMounted } from 'vue'
 
 interface QuestionDetail {
   id: string
-  answerDetail: string
   image?: string
+  answerDetail: string
 }
 
 //const questionIndices= ref([0, 1, 2]);
@@ -18,9 +18,8 @@ const questionIndices = ref(['habitants', 'horloge', 'escalier'])
 const questionDetails = ref<QuestionDetail[]>([
   {
     id: 'horloge',
+    image:'https://cdn.unitycms.io/images/FyS1Wn0u4U_A2fSLSWC21L.jpg?op=ocroped&val=1200,800,1000,1000,0,0&sum=woDh2_tyxFA',
     answerDetail: "L'horloge a été construite en 1964 puis rénovée en 2005",
-    image:
-      'https://cdn.unitycms.io/images/FyS1Wn0u4U_A2fSLSWC21L.jpg?op=ocroped&val=1200,800,1000,1000,0,0&sum=woDh2_tyxFA',
   },
 ])
 
@@ -77,26 +76,8 @@ onMounted(() => {
 <template>
   <form @submit="submit">
     <div v-for="(id, idx) in questionIndices" :key="id">
-      <div
-        v-if="
-          questionStates[idx] === QuestionState.Correct ||
-          questionStates[idx] === QuestionState.Wrong
-        "
-      >
-        <h4>Détails de la question {{ idx + 1 }}</h4>
+      <h4>Question {{ idx + 1 }}</h4>
 
-        <div class="question-detail">
-          <!--affichage de la question-->
-          <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
-        </div>
-
-        <img
-          v-if="getQuestionDetails(id)?.image"
-          :src="getQuestionDetails(id)?.image"
-          alt="Détail de la réponse"
-          class="question-image"
-        />
-      </div>
       <!-- Question Radio -->
       <QuestionRadio
         v-if="id === 'habitants'"
@@ -124,6 +105,7 @@ onMounted(() => {
           { value: '1965', text: '1965' },
           { value: '1963', text: '1963' },
         ]"
+
       />
       <QuestionRadio
         v-if="id === 'escalier'"
@@ -139,6 +121,25 @@ onMounted(() => {
         ]"
         answer-detail="La tour de Sauvabelin a 302 marches d'escalier"
       />
+      <div
+        v-if="
+          questionStates[idx] === QuestionState.Correct ||
+          questionStates[idx] === QuestionState.Wrong
+        "
+      >
+      <div class="answer-detail">
+        <p v-if="getQuestionDetails(id)?.answerDetail?.trim()">
+            {{ getQuestionDetails(id)?.answerDetail }}
+          </p>
+
+        </div>
+        <img
+          v-if="getQuestionDetails(id)?.image"
+          :src="getQuestionDetails(id)?.image"
+          alt="Détail de la réponse"
+          class="question-image"
+        />
+      </div>
     </div>
 
     <QuestionText
