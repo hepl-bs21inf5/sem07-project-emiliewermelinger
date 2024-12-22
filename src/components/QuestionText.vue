@@ -7,7 +7,7 @@
     id: { type: String, required: true },
     text: { type: String, required: true },
     answer:{type: String, required: true},
-    answerDetail:{type: String, default:"Aucune information complémentaire"},
+    answerDetail:{type: String, default:''},
     placeholder:{type: String, default : "Veuillez saisir une réponse"}
   });
 

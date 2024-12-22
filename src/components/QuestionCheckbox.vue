@@ -10,7 +10,7 @@ const props = defineProps({
     type: Array as PropType<Array<{ value: string; text: string }>>,
     required: true,
   },
-  answerDetail: { type: String, default: "Aucune information complémentaire" },
+  answerDetail: { type: String, default: '' },
   answer: { type: Array as PropType<string[]>, required: true}, // Réponses multiples
 });
 

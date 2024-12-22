@@ -13,7 +13,7 @@ interface QuestionDetail {
 }
 
 //const questionIndices= ref([0, 1, 2]);
-const questionIndices = ref(['habitants', 'horloge', 'escalier'])
+const questionIndices = ref(['habitants', 'horloge', 'escalier','lac','metro','tourisme'])
 
 const questionDetails = ref<QuestionDetail[]>([
   {
@@ -29,6 +29,21 @@ const questionDetails = ref<QuestionDetail[]>([
   { id: 'habitants',
     image: '',
     answerDetail:"En 2021 il y avait 140619 habitants à Lausanne, aujourd'hui il y en a plus de 150000",
+  },
+  {
+    id: 'lac',
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Lake_Geneva_by_Sentinel-2.jpg/560px-Lake_Geneva_by_Sentinel-2.jpg",
+    answerDetail: "Contrairement à ce que certains disent, le vrai nom du lac est le lac léman et non le lac de Genève",
+  },
+  {
+    id:'toursime',
+    image:'',
+    answerDetail: "Lausanne est connue car c'est la capitale olympique",
+  },
+  {
+    id:'metro',
+    image:'',
+    answerDetail:"Les métros se nomment m1 et m2. Le m veut dire métro et le numéro est l'ordre dans lequel ils ont été construits"
   }
 ])
 
@@ -100,6 +115,7 @@ onMounted(() => {
           { value: '150720', text: '150720' },
           { value: '145015', text: '145015' },
         ]"/>
+
       <QuestionRadio
         v-if="id === 'horloge'"
         id="horloge"
@@ -112,6 +128,7 @@ onMounted(() => {
           { value: '1965', text: '1965' },
           { value: '1963', text: '1963' },
         ]"/>
+
       <QuestionRadio
         v-if="id === 'escalier'"
         id="escalier"
@@ -124,7 +141,45 @@ onMounted(() => {
           { value: '299', text: '299' },
           { value: '296', text: '296' },
         ]"/>
-      <div
+
+      <QuestionText
+        v-if="id === 'lac'"
+        id="lac"
+        v-model="questionStates[idx]"
+        answer="['leman','léman','le lac léman','le lac leman']"
+        text="Comment s'appelle le lac qui touche Lausanne ?"
+      />
+
+      <QuestionSelect
+        v-if="id === 'tourisme'"
+        id="tourisme"
+        v-model="questionStates[idx]"
+        answer="Le siège du comité international olympique"
+        text="Lausanne est connue pour :"
+        :options="[
+          {
+            value: 'Le siège du comité international olympique',
+            text: 'Le siège du comité international olympique',
+          },
+          { value: 'lac', text: 'Le lac' },
+          { value: 'chocolat', text: 'Le chocolat du Barbare' },
+          { value: 'Sa cathédrale', text: 'Sa cathédrale' },
+        ]" />
+
+      <QuestionCheckbox
+        v-if="id === 'metro'"
+        id="metro"
+        v-model="questionStates[idx]"
+        :answer="['m1', 'm2']"
+        text="Comment s'appellent les métros que l'on peut emprunter à Lausanne ?"
+        :options="[
+          { value: 'm1', text: 'm1' },
+          { value: 'm2', text: 'm2' },
+          { value: 'n1', text: 'n1' },
+          { value: 'tram', text: 'tram' },
+        ]"/>
+
+    <div
         v-if="
           questionStates[idx] === QuestionState.Correct ||
           questionStates[idx] === QuestionState.Wrong
@@ -144,45 +199,6 @@ onMounted(() => {
         />
       </div>
     </div>
-
-    <QuestionText
-      id="lac"
-      v-model="questionStates[3]"
-      answer="['leman','léman','le lac léman','le lac leman']"
-      text="Comment s'appelle le lac qui touche Lausanne ?"
-      answer-detail="Contrairement à ce que certains disent, le vrai nom du lac est le lac léman et non le lac de Genève"
-    />
-
-    <QuestionSelect
-      id="tourisme"
-      v-model="questionStates[4]"
-      answer="Le siège du comité international olympique"
-      text="Lausanne est connue pour :"
-      :options="[
-        {
-          value: 'Le siège du comité international olympique',
-          text: 'Le siège du comité international olympique',
-        },
-        { value: 'lac', text: 'Le lac' },
-        { value: 'chocolat', text: 'Le chocolat du Barbare' },
-        { value: 'Sa cathédrale', text: 'Sa cathédrale' },
-      ]"
-      answer-detail="Lausanne est connue car c'est la capitale olympique"
-    />
-
-    <QuestionCheckbox
-      id="metro"
-      v-model="questionStates[5]"
-      :answer="['m1', 'm2']"
-      text="Comment s'appellent les métros que l'on peut emprunter à Lausanne ?"
-      :options="[
-        { value: 'm1', text: 'm1' },
-        { value: 'm2', text: 'm2' },
-        { value: 'n1', text: 'n1' },
-        { value: 'tram', text: 'tram' },
-      ]"
-      answer-detail="Les métros se nomment m1 et m2. Le m veut dire métro et le numéro est l'ordre dans lequel ils ont été construits "
-    />
 
     <br />
     <button class="btn btn-primary" :class="{ disabled: !filled }" @click="submit">Terminer</button>
