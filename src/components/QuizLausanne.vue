@@ -84,7 +84,12 @@ onMounted(() => {
         "
       >
         <h4>Détails de la question {{ idx + 1 }}</h4>
-        <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
+
+        <div class="question-detail">
+          <!--affichage de la question-->
+          <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
+        </div>
+
         <img
           v-if="getQuestionDetails(id)?.image"
           :src="getQuestionDetails(id)?.image"
@@ -119,7 +124,6 @@ onMounted(() => {
           { value: '1965', text: '1965' },
           { value: '1963', text: '1963' },
         ]"
-        answer-detail="L'horloge a été construite en 1964 puis rénovée en 2005"
       />
       <QuestionRadio
         v-if="id === 'escalier'"
