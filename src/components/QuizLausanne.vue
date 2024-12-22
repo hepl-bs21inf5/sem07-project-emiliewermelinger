@@ -19,7 +19,7 @@ const questionDetails = ref<QuestionDetail[]>([
   {
     id: 'horloge',
     answerDetail: "L'horloge a été construite en 1964 puis rénovée en 2005",
-    image: '/public/images/horloge_palud.jpg',
+    image: './images/horloge_palud.jpg',
   },
 ])
 
