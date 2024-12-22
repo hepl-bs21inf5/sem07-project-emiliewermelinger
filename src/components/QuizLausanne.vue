@@ -180,26 +180,6 @@ onMounted(() => {
     <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
     <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
     <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
-    <div v-if="submitted">
-      <div v-for="(id, idx) in questionIndices" :key="id">
-        <!--<div v-for="(state, index) in questionStates" :key="index">-->
-        <div
-          v-if="
-            questionStates[idx] === QuestionState.Correct ||
-            questionStates[idx] === QuestionState.Wrong
-          "
-        >
-          <h4>Détails de la question {{ idx + 1 }}</h4>
-          <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
-          <img
-            v-if="getQuestionDetails(id)?.image"
-            :src="getQuestionDetails(id)?.image"
-            alt="Détail de la réponse"
-          />
-        </div>
-      </div>
-    </div>
-
     <div>Debug états : {{ questionStates }}</div>
     <!--permet de debug facilement l'application -->
   </form>
