@@ -11,7 +11,7 @@
       required: true,
     },
     answerDetail:{type: String, default:''},
-    answer:{type: String,required: true,}
+    answer:{type: String,required: true,},
   });
 
   const value= ref<string| null>(null)
@@ -56,23 +56,6 @@
         {{ option.text }}
       </option>
     </select>
-  <!--<div v-for="option in props.options" :key="option.value" class="form-check">
-    <input
-      :id="`${props.id}-${option.value}`"
-      v-model="value"
-      class="form-check-input"
-      type="radio"
-      :name="props.id"
-      :value="option.value"
-      :disabled="
-        model === QuestionState.Submit ||
-        model === QuestionState.Correct ||
-        model === QuestionState.Wrong"
-    />
-    <label class="form-check-label" :for="`${props.id}-${option.value}`">
-      {{ option.text }}
-    </label>
-  </div>-->
     <div v-if="model === QuestionState.Correct || model === QuestionState.Wrong">
       <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
       <p v-else class="text-danger">

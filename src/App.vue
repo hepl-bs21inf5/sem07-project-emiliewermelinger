@@ -9,6 +9,10 @@ import { RouterLink, RouterView } from 'vue-router'
         <i class="bi bi-emoji-smile"></i>
         Quiz
       </RouterLink>
+      <RouterLink class="nav-link" to="/Lausanne">
+        <i class="bi bi-binoculars"></i>
+        Lausanne
+      </RouterLink>
       <button
         class="navbar-toggler"
         type="button"
@@ -30,10 +34,6 @@ import { RouterLink, RouterView } from 'vue-router'
             <RouterLink class="nav-link" to="/trivia">
               <i class="bi bi-question"></i>
               Trivia
-            </RouterLink>
-            <RouterLink class="nav-link" to="/Lausanne">
-              <i class="bi bi-question"></i>
-              Lausanne
             </RouterLink>
           </li>
         </ul>

@@ -11,8 +11,6 @@ interface QuestionDetail {
   image?: string
   answerDetail: string
 }
-
-//const questionIndices= ref([0, 1, 2]);
 const questionIndices = ref(['habitants', 'horloge', 'escalier','lac','metro','tourisme'])
 
 const questionDetails = ref<QuestionDetail[]>([

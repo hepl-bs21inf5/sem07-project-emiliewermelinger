@@ -89,15 +89,15 @@ onMounted(() => {
     />
     <QuestionRadio
       v-if="index===2"
-      id="capitale"
+      id="titi"
       v-model="questionStates[2]"
-      answer="Berne"
-      text=" Quelle est la capitale de la Suisse ?"
+      answer="titi"
+      text=" Quelle est le nom de l'oiseau que Gros-minet veut manger ?"
       :options="[
-        { value: 'Berne', text: 'Berne' },
-        { value: 'Lausanne', text: 'Lausanne' },
-        { value: 'Zürich', text: 'Zürich' },
-        { value: 'Genève', text: 'Genève' },
+        { value: 'titi', text: 'Titi' },
+        { value: 'Lulu', text: 'Lulu' },
+        { value: 'momo', text: 'Momo' },
+        { value: 'fafa', text: 'Fafa' },
       ]"
     />
   </div>
@@ -111,23 +111,35 @@ onMounted(() => {
 
     />
 
-
     <QuestionSelect
       id="questionFavori"
       v-model="questionStates[4]"
-      answer="café"
-      text="Quelle est votre boisson préférée ?"
+      answer="chien"
+      text="Quel est l'animal qui représente Snoopy ?"
       :options="[
-        { value: 'café', text: 'Café' },
-        { value: 'thé', text: 'Thé' },
-        { value: 'eau', text: 'Eau' },
-        { value: 'jus', text: 'Jus' }
+        { value: 'chien', text: 'Chien' },
+        { value: 'chat', text: 'Chat' },
+        { value: 'souris', text: 'Souris' },
+        { value: 'oiseau', text: 'Oiseau' }
+      ]"
+      answer-detail="Snoopy est un chien noir et blanc"
+    />
+    <QuestionSelect
+      id="questionFavori"
+      v-model="questionStates[5]"
+      answer="orange"
+      text="De quelle couleur est Garfield ?"
+      :options="[
+        { value: 'bleu', text: 'Bleu' },
+        { value: 'orange', text: 'Orange' },
+        { value: 'jaune', text: 'Jaune' },
+        { value: 'violet', text: 'Violet' }
       ]"
     />
 
     <QuestionCheckbox
       id="continents"
-      v-model="questionStates[5]"
+      v-model="questionStates[6]"
       :answer="['Afrique', 'Europe']"
       text="Quels continents font partie du monde ?"
       :options="[
