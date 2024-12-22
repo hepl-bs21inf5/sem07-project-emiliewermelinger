@@ -19,7 +19,8 @@ const questionDetails = ref<QuestionDetail[]>([
   {
     id: 'horloge',
     answerDetail: "L'horloge a été construite en 1964 puis rénovée en 2005",
-    image: './images/horloge_palud.jpg',
+    image:
+      'https://cdn.unitycms.io/images/FyS1Wn0u4U_A2fSLSWC21L.jpg?op=ocroped&val=1200,800,1000,1000,0,0&sum=woDh2_tyxFA',
   },
 ])
 
@@ -86,7 +87,7 @@ onMounted(() => {
         <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
         <img
           v-if="getQuestionDetails(id)?.image"
-          :src="`/images/${getQuestionDetails(id)?.image}`"
+          :src="getQuestionDetails(id)?.image"
           alt="Détail de la réponse"
         />
       </div>
