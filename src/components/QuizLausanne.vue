@@ -18,7 +18,7 @@ const questionIndices = ref(['habitants', 'horloge', 'escalier'])
 const questionDetails = ref<QuestionDetail[]>([
   {
     id: 'horloge',
-    image:'https://cdn.unitycms.io/images/FyS1Wn0u4U_A2fSLSWC21L.jpg?op=ocroped&val=1200,800,1000,1000,0,0&sum=woDh2_tyxFA',
+    image: "require('@/components/images/horologe_palud.jpg')",
     answerDetail: "L'horloge a été construite en 1964 puis rénovée en 2005",
   },
 ])
