@@ -86,7 +86,7 @@ onMounted(() => {
         <p>{{ getQuestionDetails(id)?.answerDetail }}</p>
         <img
           v-if="getQuestionDetails(id)?.image"
-          :src="getQuestionDetails(id)?.image"
+          :src="`/images/${getQuestionDetails(id)?.image}`"
           alt="Détail de la réponse"
         />
       </div>
