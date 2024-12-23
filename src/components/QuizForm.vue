@@ -73,19 +73,21 @@ onMounted(() => {
           { value: '100', text: '100' },
           { value: '366', text: '366' },
         ]"
+        answer-detail="Une année bissextile comporte 366 jours et une non bissextile 365"
       />
     <QuestionRadio
       v-if="index===1"
-      id="chevalBlanc"
+      id="hep"
       v-model="questionStates[1]"
-      answer="blanc"
-      text="De quelle couleur est le cheval blanc de Napoléon ?"
+      answer="9"
+      text="Combien y a-t-il de bâtiments de la Hep à l'avenue de Cour 33?"
       :options="[
-        { value: 'blanc', text: 'Blanc' },
-        { value: 'arc-en-ciel', text: 'Arc-en-ciel' },
-        { value: 'brun', text: 'Brun' },
-        { value: 'noir', text: 'Noir' },
+        { value: '9', text: '9' },
+        { value: '8', text: '8' },
+        { value: '10', text: '10' },
+        { value: '7', text: '7' },
       ]"
+      answer-detail="La Hep a 9 bâtiments en comptant l'aula"
     />
     <QuestionRadio
       v-if="index===2"
@@ -112,7 +114,7 @@ onMounted(() => {
     />
 
     <QuestionSelect
-      id="questionFavori"
+      id="chien"
       v-model="questionStates[4]"
       answer="chien"
       text="Quel est l'animal qui représente Snoopy ?"
@@ -125,7 +127,7 @@ onMounted(() => {
       answer-detail="Snoopy est un chien noir et blanc"
     />
     <QuestionSelect
-      id="questionFavori"
+      id="garfield"
       v-model="questionStates[5]"
       answer="orange"
       text="De quelle couleur est Garfield ?"
@@ -135,20 +137,21 @@ onMounted(() => {
         { value: 'jaune', text: 'Jaune' },
         { value: 'violet', text: 'Violet' }
       ]"
+      answer-detail="Garfield est un chat orange qui adore les lasagnes"
     />
 
     <QuestionCheckbox
-      id="continents"
+      id="Quelles sont les langues pincipales apprises à l'école en Suisse ?"
       v-model="questionStates[6]"
-      :answer="['Afrique', 'Europe']"
+      :answer="['Allemand', 'Français','Anglais']"
       text="Quels continents font partie du monde ?"
       :options="[
-        { value: 'Afrique', text: 'Afrique' },
-        { value: 'Asie', text: 'Asie' },
-        { value: 'Europe', text: 'Europe' },
-        { value: 'Atlantide', text: 'Atlantide' },
+        { value: 'Allemand', text: 'Allemand' },
+        { value: 'Français', text: 'Français' },
+        { value: 'Anglais', text: 'Anglais' },
+        { value: 'Italien', text: 'Italien' },
       ]"
-      answer-detail="Les continents corrects sont Afrique et Europe."
+      answer-detail="Les élèves apprennent trois langues principales, l'Allemand, le Français et l'Anglais et l'Italien est en option"
     />
 
       <br />
