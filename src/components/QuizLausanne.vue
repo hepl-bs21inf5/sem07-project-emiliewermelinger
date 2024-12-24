@@ -145,7 +145,7 @@ onMounted(() => {
         v-if="id === 'lac'"
         id="lac"
         v-model="questionStates[idx]"
-        answer="['leman','léman','le lac léman','le lac leman','le lac Léman','le lac Leman','Léman','Leman']"
+        answer="['leman','léman','le lac léman','le lac leman','le lac Léman','le lac Leman','Léman','Leman','Le lac Léman','Le lac Leman']"
         text="Comment s'appelle le lac qui touche Lausanne ?"
       />
 
