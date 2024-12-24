@@ -13,6 +13,7 @@ interface QuestionDetail {
 }
 const questionIndices = ref(['habitants', 'horloge', 'escalier','lac','metro','tourisme'])
 
+
 const questionDetails = ref<QuestionDetail[]>([
   {
     id: 'horloge',

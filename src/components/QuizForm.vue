@@ -144,7 +144,7 @@ onMounted(() => {
       id="ecole"
       v-model="questionStates[6]"
       :answer="['Allemand', 'Français','Anglais']"
-      text="Quelles sont les langues pincipales apprises à l'école en Suisse ?"
+      text="Quelles sont les langues obligatoires apprises à l'école en Suisse ?"
       :options="[
         { value: 'Allemand', text: 'Allemand' },
         { value: 'Français', text: 'Français' },
