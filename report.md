@@ -79,17 +79,18 @@ Commentaires ajoutés dans le code src->components->QuizForm.vue qui aide à com
 - Ajouter une tab Trivia et créer de document QuizTrivia.vue
   temps estimé : 20 min/ temps réel 20 min
 
-  ### Commentaire:
+### Commentaire:
   Il faut bien faire attention à ce que l'on modifie dans quaque code, car si on modifie dans QuestionText.vue cela peut avoir un impact dans le code de QuizForm.vue ou alors sur le rendu visuel du site internet.
 
-  ### Questions:
-  #### Comment rendre la propriété placeholder optionnelle ?
-  - Il faut dans les documents parents mettre comme cela placeholder:{type: String, default : ''}.
-  Cela signifie que le message affiché par défault si rien n'est indiqué spécifiquement pour chaque question est vide, rien ne s'affichera.
+### Questions:
 
-  #### Quelle est la différence entre un prop et un modèle (v-model) ?
+#### Quelle est la différence entre un prop et un modèle (v-model) ?
   - Un prop permet de transmettre certaines données d'un composant parent à un composant enfant. 
   - un v-model permet de transmettre certaines données dans les deux-sens (document parent->enfant et inverse), ils peuvent donc tous les deux modifier la donnée.
+
+#### Comment rendre la propriété placeholder optionnelle ?
+  - Il faut dans les documents parents mettre comme cela placeholder:{type: String, default : ''}.
+  Cela signifie que le message affiché par défault si rien n'est indiqué spécifiquement pour chaque question est vide, rien ne s'affichera.
 
 ## Semaine 3 projet
 
@@ -101,6 +102,86 @@ Commentaires ajoutés dans le code src->components->QuizForm.vue qui aide à com
 - Modifier le QuizzForm.vue afin que chaque solution soit dans la liste affichée de réponses juste ou fausse/ modifier le v-model
   temps estimé : 15 min/ temps réel: 25min
 
+- Modifier le composant QuestionText.vue afin qu'il fonctionne comme QuestionRadio.vue
+  temps estimé: 20 min/ temps réel: 20 min
+
+
+### Questions:
+
+#### À quoi sert l'option immediate: true dans le watch ? Que se passe-t-il si on l'enlève ou si on met immediate: false ?  
+- immediate : true permet d'exécuter immédiatement ce que l'on met dans le watch. Si l'on met false ou que l'on enlève le immediate, la fonction watch fonctionnera seulement lorsque la velur changera.
+
+#### Proposer une autre manière de calculer le score (réécrire la fonction du computed) et comparer les deux méthodes.
+
+- Une autre manière de définir le score serait d'utiliser la fonction reduce qui permettrait d'additioner directement les bonnes réponses. Si la réponse est true on ajoute 1 et sinon 0. 
+
+const score = computed<number>(() => correctAnswers.value.reduce((acc, value) => acc + (value ? 1 : 0), 0));
+
+Actuellement nous utilisons la fonction filter qui utilise un tableau qui va contenir les éléments true, puis on va mesurer la taille de ce tableau et cela va nous donner le score. Cette méthode est plus facile à lire que celle avec reduce. le désavantage de cette fonction est que si le tableau contient beaucoup d'éléments cela va prendre plus de mémoire à être executée.
 
 ### Commentaire:
-Il faut faire attention à bien modifier les v-model de chaque question. et de bien les ajouter dans le liste des correctAnswers.Il faut bien modifier l v-model dans QuestionRadio.vue afin que ce ne soit plus un model mais un value qui reprend la const value.
+Il faut faire attention à bien modifier les v-model de chaque question et de bien les ajouter dans le liste des correctAnswers.Il faut bien modifier le v-model dans QuestionRadio.vue afin que ce ne soit plus un model mais un value qui reprend la const value.
+
+## Semaine 4 projet
+
+### Tâche/Temps estimé/ Temps réel
+
+- Créer un nouveau fichier models.ts
+  temps estimé: 5 min/ temps réel: 5 min
+
+- Ajouter un nouveau watch sur model pour corriger l'état de la question
+  temps estimé: 15 min/ temps réel: 20 min
+
+- Adapter le watch sur value pour qu'il mette à jour le modèle
+  temps estimé: 15min/ temps réel: 20 min
+
+- Adapter QuestionText.vue comme QuestionRadio.vue
+  temps estimé: 20 min/ temps réel: 20 min
+
+- Adapter la fonction submit et reset dans QuizForm.vue
+  temps estimé: 20 min/ temps réel: 45 min
+
+- Rendre les réponses immuables
+  temps estimé: 20 min/ temps réel: 35 min
+
+### Questions:
+
+#### Comment pourrait-on réécrire la ligne suivante sans l'opérateur ternaire (avec des if et else) ?
+
+model.value =
+  value.value === props.answer ? QuestionState.Correct : QuestionState.Wrong;
+
+  - Si la valeur entrée est égale à la réponse attendue, alors elle devient correcte (Correct), sinon elle devient incorrecte (Wrong).
+  
+  if (value.value === props.answer) {
+  model.value = QuestionState.Correct;
+} else {
+  model.value = QuestionState.Wrong;
+}
+
+#### Comment pourrait-on réécrire autrement la logique du watch sur value ?
+
+- On pourrait utiliser des if. On vérifie si newValue est null, si oui alors model.value devient  QuestionState.Empty, sinon elle devient QuestionState.Fill.
+
+watch(value, (newValue) => {
+  model.value = newValue === null ? QuestionState.Empty : QuestionState.Fill;
+}, { immediate: true });
+
+## Semaine 5 projet
+
+### Tâche/Temps estimé/ Temps réel
+
+- Mettre en place les réponses détaillées
+  temps estimé: 15 min/ temps réel: 25 min
+
+- Changer les couleurs dans un composant
+  temps estimé: 15 min/ temps réel: 10 min
+
+### Questions:
+
+
+
+
+### Commentaire:
+
+La mise en placedes réponses détaillées ne prened pas enormément de temps, ce qui prend le plus de temps c'est d'écrire les réponses détaillées pour chaque question.

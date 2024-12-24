@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, type PropType, onMounted } from 'vue'
+import { ref, watch, type PropType, onMounted, computed } from 'vue'
 import { QuestionState } from '@/utils/models'
 
 const model = defineModel<QuestionState>()
@@ -59,6 +59,13 @@ watch(
   },
   { immediate: true },
 )
+
+// Computed pour obtenir le texte de la réponse associée
+const answerText = computed<string>(
+  () =>
+    props.options.find((option) => option.value === props.answer)?.text ??
+    props.answer,
+)
 </script>
 
 <template>
@@ -83,7 +90,7 @@ watch(
   </div>
   <div v-if="model === QuestionState.Correct || model === QuestionState.Wrong">
     <p v-if="model === QuestionState.Correct" class="text-success">Juste !</p>
-    <p v-else class="text-danger">Faux ! La réponse était : {{ props.answer }}</p>
+    <p v-else class="text-danger">Faux ! La réponse était : {{ answerText }}</p>
     <p class="blockquote-footer">{{ props.answerDetail }}</p>
   </div>
 </template>

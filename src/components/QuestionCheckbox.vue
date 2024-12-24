@@ -30,8 +30,6 @@ watch(
     if (newModel === QuestionState.Submit) {
       const isCorrect =arraysEqual([...values.value], [...props.answer]);
       model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong;
-        //JSON.stringify([...values.value].sort()) === JSON.stringify([...props.answer].sort());
-      //model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong;
     } else if (newModel === QuestionState.Empty) {
       values.value = [];
     }
