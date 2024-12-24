@@ -179,9 +179,53 @@ watch(value, (newValue) => {
 
 ### Questions:
 
+#### Remplacer {{ props.answer }} par {{ answerText }} dans le template.Expliquer pourquoi on a fait ce changement ainsi que le code du computed.
+- Ce changement permet permet de récupérer le texte associé à la valeur de la réponse (props.answer) parmi les options données dans props.options. Si aucune correspondance n'est trouvée, il retourne simplement la valeur de props.answer.
+Cela permet de simplifier le code dans le template car au lieu d'aller chercher dans chaque utilisation de pops.answer, il va le faire une fois dans le computed.
 
+1. props.options.find((option) => option.value === props.answer) 
+Cette ligne cherche dans le tableau options l'option qui correspond à la valeur de props.answer.
 
+2. ?.text
+Si une correspondance est trouvée, cela retourne le texte associé à cette option (option.text).
+
+3. ?? props.answer 
+Si aucune correspondance n'est trouvée on affiche la valeur de props.answer.
+
+### Que se passe-t-il lorsqu'on ne met pas de valeur à answer-detail ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.
+- Si on ne met pas de valeur à answer-detail (comme je l'ai fait), cela reprendra la valeur définie par défaut dans nos code parents. Si comme moi, dans ces code il est défini comme '' alors il afichera seulement un petit trait.
+Ce n'est pas toujours satisfaisant car parfois nous n'avons aucune information compémentaire à ajouter et nous ne voulons pas afficher la valeur définie par défaut.
 
 ### Commentaire:
 
 La mise en placedes réponses détaillées ne prened pas enormément de temps, ce qui prend le plus de temps c'est d'écrire les réponses détaillées pour chaque question.
+
+J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je voulais des answer-detail dès que je voulais et ne pas en afficher si je n'en voulais pas. Cela m'a aussi permis par la suite de créer une nouvelle page "Lausanne" et d'afficher différemment les réponses données en laissant afficher le -.
+
+
+## Semaine 6 projet- améliorations
+
+### Expliquer votre démarche pour les améliorations que vous avez choisies :
+
+1. QuestionSelect
+2. Questioncheckbox
+3. Ajout images
+4. Nouvelle page Lausanne
+
+#### Pourquoi avez-vous choisi ces améliorations ?
+
+1. J'ai choisi d'ajouter des questions de différents types (QuestionSelect et QuestionCheckbox) afin d'avoir plus de proposition d'affichage différente. 
+
+2. J'ai choisi d'ajouter des images lors que les solutions s'affichent sur ma page Lausanne car cela aide à comprendre de quoi on parle dans la question. J'ai décidé de ne pas les afficher tant que nous n'avons pas répondu car selon la question(dependant du quiz créer), cela peut nous donner les informations de réponse et ce n'est aps ce que je voulais.
+
+3. J'ai choisi de créer une nouvelle page Lausanne afin d'y implémenter mes nouvelles améliorations et de garder la page Quiz de la manière basique vue en cours pour le projet.
+
+
+#### Comment les avez-vous implémentées ?
+
+1. 
+
+
+#### Quels problèmes avez-vous rencontrés ?
+#### Quelles améliorations pourriez-vous encore apporter ?
+#### Vous devoir pouvoir expliquer votre code afin de valider une amélioration.
