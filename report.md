@@ -1,4 +1,4 @@
-Séminaire 07 - Projet
+Projet
 
 [Emilie Wermelinger]
 
@@ -203,7 +203,7 @@ La mise en placedes réponses détaillées ne prened pas enormément de temps, c
 J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je voulais des answer-detail dès que je voulais et ne pas en afficher si je n'en voulais pas. Cela m'a aussi permis par la suite de créer une nouvelle page "Lausanne" et d'afficher différemment les réponses données en laissant afficher le -.
 
 
-## Semaine 6 projet- améliorations
+## Semaine 6 projet - améliorations
 
 ### Expliquer votre démarche pour les améliorations que vous avez choisies :
 
@@ -211,6 +211,9 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 2. Questioncheckbox
 3. Ajout images
 4. Nouvelle page Lausanne
+5. Ordre aléatoire des questions
+6. Ordre aléatoire des options de réponse pour les QuestionRadio
+7. Plusieurs réponses possibles pour les QuestionText
 
 #### Pourquoi avez-vous choisi ces améliorations ?
 
@@ -220,12 +223,39 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 
 3. J'ai choisi de créer une nouvelle page Lausanne afin d'y implémenter mes nouvelles améliorations et de garder la page Quiz de la manière basique vue en cours pour le projet.
 
+4. L'ordre aléatoire des questions et des options de réponses est très utile pour l'apprentissage car cela évite que les personnes apprennent par coeur les réponses et leur emplacement. 
+
+5. Avoir la possiblité de répondre de plusieurs manière aux QuestionText est très important. L'orthographe n'a pas besoin d'être parfaite et les personnes peuvent répondre de plusieurs manières possibles sans que cela les pénalises dans leur score.
 
 #### Comment les avez-vous implémentées ?
 
 1. 
 
+2. 
+
+3. 
+
+4. 
+
+5. 
+
+6. 
+
+7. 
+
 
 #### Quels problèmes avez-vous rencontrés ?
+
+1. QuestionSelect: 
+
+2. QuestionCheckbox:
+
+3. Ajout d'images: j'ai eu du mal à ajouter des images car je ne prenais pas le lien direct de l'image, j'ai d'abord essayé avec le lien de la page web, puis en ajoutant l'image dans un dossier du projet mais cela ne fonctionnait pas. J'ai finalement réussi à trouver les bon liens.
+
+4. Nouvelle page Lausanne: Je n'ai aps eu trop de soucis à créer cette nouvelle page. Le seul inconvénients était de modifier les questions comme souhaitées, puis de coder le résultat voulu après avoir appuyer sur le bouton terminer.
+
+5. Ordre aléatoire des questions: j'ai du créer une nouvelle fonction qui permet de prendre chaque sorte de questions et de les mélanger.
 #### Quelles améliorations pourriez-vous encore apporter ?
+
+
 #### Vous devoir pouvoir expliquer votre code afin de valider une amélioration.

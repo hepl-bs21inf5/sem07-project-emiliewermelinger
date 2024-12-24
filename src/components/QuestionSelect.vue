@@ -47,7 +47,7 @@
       :disabled="model === QuestionState.Submit || model === QuestionState.Correct || model === QuestionState.Wrong"
       class="form-select"
     >
-    <option value="" disabled>Choisissez une réponse</option>
+    <option value=disabled>Choisissez une réponse</option>
       <option
         v-for="option in props.options"
         :key="option.value"
