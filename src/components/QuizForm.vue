@@ -141,10 +141,10 @@ onMounted(() => {
     />
 
     <QuestionCheckbox
-      id="Quelles sont les langues pincipales apprises à l'école en Suisse ?"
+      id="ecole"
       v-model="questionStates[6]"
       :answer="['Allemand', 'Français','Anglais']"
-      text="Quels continents font partie du monde ?"
+      text="Quelles sont les langues pincipales apprises à l'école en Suisse ?"
       :options="[
         { value: 'Allemand', text: 'Allemand' },
         { value: 'Français', text: 'Français' },
