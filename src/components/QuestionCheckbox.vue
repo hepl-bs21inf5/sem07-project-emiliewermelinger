@@ -16,17 +16,27 @@ const props = defineProps({
 
 const values = ref<string[]>([]); // Tableau de réponses sélectionnées
 
+function arraysEqual(arr1: string[], arr2: string[]): boolean {
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
+  return arr1.every((value) => arr2.includes(value));
+}
+
+
 watch(
   model,
   (newModel) => {
     if (newModel === QuestionState.Submit) {
-      const isCorrect =
-        JSON.stringify(values.value.sort()) === JSON.stringify(props.answer.sort);
+      const isCorrect =arraysEqual([...values.value], [...props.answer]);
       model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong;
+        //JSON.stringify([...values.value].sort()) === JSON.stringify([...props.answer].sort());
+      //model.value = isCorrect ? QuestionState.Correct : QuestionState.Wrong;
     } else if (newModel === QuestionState.Empty) {
       values.value = [];
     }
   },
+  {immediate:true},
 );
 
 watch(
