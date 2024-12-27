@@ -175,7 +175,7 @@ onMounted(() => {
       ]"
       answer-detail="Les élèves apprennent trois langues principales, l'Allemand, le Français et l'Anglais et l'Italien est en option"
     />
-  </div>
+    </div>
 
 
       <br />
