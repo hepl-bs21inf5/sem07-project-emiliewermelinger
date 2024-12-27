@@ -29,6 +29,7 @@ const totalScore =computed<number>(() => questionStates.value.length);
 function reset(event: Event): void {
   event.preventDefault()
   questionStates.value = questionStates.value.map(() => QuestionState.Empty)
+  questionIndices.value = shuffleQuestions([...questionIndices.value])
 }
 
 function submit(event: Event): void {
@@ -53,6 +54,7 @@ const shuffleQuestions = (array:number[]):number[] => {
 
 onMounted(() => {
   questionIndices.value = shuffleQuestions([...questionIndices.value]);
+  questionStates.value = new Array(questionIndices.value.length).fill(QuestionState.Empty)
 });
 </script>
 
