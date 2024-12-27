@@ -98,9 +98,8 @@ onMounted(() => {
 
 <template>
   <form @submit="submit">
-    <div v-for="(id, idx) in questionIndices" :key="id">
-      <!--Permet d'afficher un titre pour chaque question-->
-      <h4>Question {{ idx + 1 }}</h4>
+    <div v-for="(id, idx) in questionIndices" :key="id"> <!--id fait référence à la valeur dans le tableau et idx son index dans le tableau-->
+      <h4>Question {{ idx + 1 }}</h4> <!--Permet d'afficher un titre pour chaque question-->
       <QuestionRadio
         v-if="id === 'habitants'"
         id="habitants"

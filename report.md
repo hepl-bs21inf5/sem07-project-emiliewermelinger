@@ -268,7 +268,7 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 
     J'ai ajouteé les indices des questions dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les questions à chaque fois que le code est relancé.
 
-    J'ai ajouté cette ligne de code "questionIndices.value = shuffleQuestions([...questionIndices.value])" dans ma fonction reset afin que les questions soient remélangées à chaque fois que l'on réinitialise le quiz.
+    J'ai ajouté cette ligne de code "questionIndices.value = shuffleQuestions([...questionIndices.value])" dans ma fonction reset afin que les questions soient remélangées à chaque fois que l'on réinitialise le quiz (seulement pour la page quiz pas pour la page lausanne).
 
 5. Ordre aléatoire des options:
 
