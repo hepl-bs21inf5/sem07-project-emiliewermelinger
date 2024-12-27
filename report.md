@@ -266,7 +266,7 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 
     J'ai implémenté l'ordre aléatoire des questions grâce à la méthode shuffleQuestions.
 
-    J'ai ajouter les indices des questionRadio dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les question à chaque fois que le code est relancé.
+    J'ai ajouter les indices des questions dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les questions à chaque fois que le code est relancé.
 
 5. Ordre aléatoire des options:
 
