@@ -149,7 +149,7 @@ onMounted(() => {
     <QuestionSelect
       id="winnie"
       v-model="questionStates[7]"
-      answer="Pense, pense, pense"
+      answer="pense"
       text="Que dit winnie à haute voix en se cognant la tête ?"
       :options="[
         { value: 'pense', text: 'Pense, pense, pense' },
