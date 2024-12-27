@@ -6,7 +6,7 @@ import QuestionText from './QuestionText.vue'
 import { QuestionState } from '@/utils/models'
 import { computed, ref, onMounted } from 'vue'
 
-const questionIndices= ref([0, 1, 2]);
+const questionIndices= ref([0, 1, 2, 3, 4, 5, 6, 7, 8]);
 
 
 const filled = computed<boolean>(
@@ -133,7 +133,7 @@ onMounted(() => {
       ]"
       answer-detail="Snoopy est un chien noir et blanc"
     />
-    
+
     <QuestionSelect
       id="garfield"
       v-model="questionStates[6]"
