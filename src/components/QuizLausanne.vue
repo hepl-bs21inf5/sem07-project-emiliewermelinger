@@ -35,7 +35,7 @@ const questionDetails = ref<QuestionDetail[]>([
     answerDetail: "Contrairement à ce que certains disent, le vrai nom du lac est le lac léman et non le lac de Genève",
   },
   {
-    id:'toursime',
+    id:'tourisme',
     image:'',
     answerDetail: "Lausanne est connue car c'est la capitale olympique",
   },
@@ -155,10 +155,8 @@ onMounted(() => {
         answer="Le siège du comité international olympique"
         text="Lausanne est connue pour :"
         :options="[
-          {
-            value: 'Le siège du comité international olympique',
-            text: 'Le siège du comité international olympique',
-          },
+          {value: 'Le siège du comité international olympique',
+            text: 'Le siège du comité international olympique',},
           { value: 'lac', text: 'Le lac' },
           { value: 'chocolat', text: 'Le chocolat du Barbare' },
           { value: 'Sa cathédrale', text: 'Sa cathédrale' },

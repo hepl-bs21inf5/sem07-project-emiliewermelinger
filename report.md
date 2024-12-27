@@ -266,7 +266,9 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 
     J'ai implémenté l'ordre aléatoire des questions grâce à la méthode shuffleQuestions.
 
-    J'ai ajouter les indices des questions dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les questions à chaque fois que le code est relancé.
+    J'ai ajouteé les indices des questions dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les questions à chaque fois que le code est relancé.
+
+    J'ai ajouté cette ligne de code "questionIndices.value = shuffleQuestions([...questionIndices.value])" dans ma fonction reset afin que les questions soient remélangées à chaque fois que l'on réinitialise le quiz.
 
 5. Ordre aléatoire des options:
 
