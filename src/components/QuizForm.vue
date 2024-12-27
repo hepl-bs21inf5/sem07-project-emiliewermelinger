@@ -59,7 +59,7 @@ onMounted(() => {
 
 <template>
   <form @submit="submit">
-    <div v-for="index in questionIndices" :key="index" class="question-container">
+    <div v-for="index in questionIndices" :key="index">
       <QuestionRadio
         v-if="index===0"
         id="année"
@@ -101,9 +101,9 @@ onMounted(() => {
         { value: 'fafa', text: 'Fafa' },
       ]"
     />
-  </div>
 
     <QuestionText
+      v-if="index===3"
       id="chat"
       v-model="questionStates[3]"
       :answer="['4','quatre']"
@@ -113,6 +113,7 @@ onMounted(() => {
     />
 
     <QuestionText
+      v-if="index===4"
       id="bouriquet"
       v-model="questionStates[4]"
       :answer="['bouriquet', 'Bouriquet','bourriquet','Bourriquet']"
@@ -121,6 +122,7 @@ onMounted(() => {
       />
 
     <QuestionSelect
+      v-if="index===5"
       id="chien"
       v-model="questionStates[5]"
       answer="chien"
@@ -135,6 +137,7 @@ onMounted(() => {
     />
 
     <QuestionSelect
+      v-if="index===6"
       id="garfield"
       v-model="questionStates[6]"
       answer="orange"
@@ -149,6 +152,7 @@ onMounted(() => {
     />
 
     <QuestionSelect
+      v-if="index===7"
       id="winnie"
       v-model="questionStates[7]"
       answer="pense"
@@ -163,6 +167,7 @@ onMounted(() => {
     />
 
     <QuestionCheckbox
+      v-if="index===8"
       id="ecole"
       v-model="questionStates[8]"
       :answer="['Allemand', 'Français','Anglais']"
@@ -175,6 +180,7 @@ onMounted(() => {
       ]"
       answer-detail="Les élèves apprennent trois langues principales, l'Allemand, le Français et l'Anglais et l'Italien est en option"
     />
+  </div>
 
       <br />
       <button
