@@ -96,6 +96,6 @@ const answerText = computed<string>(
 </template>
 <style scoped>
 .text-danger {
-  color: purple !important;
+  color: yellow !important;
 }
 </style>
