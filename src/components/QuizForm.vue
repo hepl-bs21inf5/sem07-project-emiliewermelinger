@@ -116,7 +116,7 @@ onMounted(() => {
     <QuestionText
       id="bouriquet"
       v-model="questionStates[4]"
-      :answer="['bouriquet', 'Bouriquet']"
+      :answer="['bouriquet', 'Bouriquet','bourriquet','Bourriquet']"
       text="Comment se nomme l'âne dans winnie l'ourson ?"
       answer-detail="Il s'appelle Bouriquet"
       />
@@ -152,7 +152,7 @@ onMounted(() => {
       id="ecole"
       v-model="questionStates[7]"
       :answer="['Allemand', 'Français','Anglais']"
-      text="Quelles sont les langues obligatoires apprises à l'école en Suisse ?"
+      text="Quelles sont les langues obligatoires apprises à l'école en Suisse romande ?"
       :options="[
         { value: 'Allemand', text: 'Allemand' },
         { value: 'Français', text: 'Français' },
