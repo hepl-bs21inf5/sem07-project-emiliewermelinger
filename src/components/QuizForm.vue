@@ -6,7 +6,7 @@ import QuestionText from './QuestionText.vue'
 import { QuestionState } from '@/utils/models'
 import { computed, ref, onMounted } from 'vue'
 
-const questionIndices= ref([0, 1, 2,]);
+const questionIndices= ref([0, 1, 2, 3, 4, 5, 6, 7, 8]);
 
 
 const filled = computed<boolean>(
@@ -101,7 +101,6 @@ onMounted(() => {
         { value: 'fafa', text: 'Fafa' },
       ]"
     />
-  </div>
 
     <QuestionText
       id="chat"
@@ -148,6 +147,7 @@ onMounted(() => {
     />
 
     <QuestionSelect
+      v-if="index===7"
       id="winnie"
       v-model="questionStates[7]"
       answer="pense"
@@ -162,6 +162,7 @@ onMounted(() => {
     />
 
     <QuestionCheckbox
+      v-if="index===8"
       id="ecole"
       v-model="questionStates[8]"
       :answer="['Allemand', 'Français','Anglais']"
@@ -174,6 +175,7 @@ onMounted(() => {
       ]"
       answer-detail="Les élèves apprennent trois langues principales, l'Allemand, le Français et l'Anglais et l'Italien est en option"
     />
+  </div>
 
 
       <br />

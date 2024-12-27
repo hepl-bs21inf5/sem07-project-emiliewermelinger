@@ -63,6 +63,7 @@ const totalScore = computed<number>(() => questionStates.value.length)
 
 function reset(event: Event): void {
   event.preventDefault()
+  questionIndices.value = shuffleQuestions([...questionIndices.value])
   questionStates.value = questionStates.value.map(() => QuestionState.Empty)
 }
 
