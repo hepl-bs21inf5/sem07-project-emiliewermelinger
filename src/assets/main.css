@@ -40,10 +40,15 @@
   height: auto; /*Garde les proportions de l'image*/
   object-fit: cover;
 }
-
+/* affichage des réponses dans QuizLausanne*/
 .answer-detail{
-  color: #ffc547; /* Utilisez la couleur de votre choix */
+  color: #ffc547; 
   font-weight: bold;
   font-size: 1.1em;
 }
+/* fait une marge entre chaque question à l'affichage*/
+.question-container {
+  margin-bottom: 20px;
+}
+
 
