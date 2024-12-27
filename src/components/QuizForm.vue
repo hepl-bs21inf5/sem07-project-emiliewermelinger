@@ -54,7 +54,6 @@ const shuffleQuestions = (array:number[]):number[] => {
 onMounted(() => {
   questionIndices.value = shuffleQuestions([...questionIndices.value]);
 });
-
 </script>
 
 <template>
@@ -103,6 +102,7 @@ onMounted(() => {
       />
 
       <QuestionText
+        v-if="index===3"
         id="chat"
         v-model="questionStates[3]"
         :answer="['4','quatre']"
@@ -111,6 +111,7 @@ onMounted(() => {
       />
 
       <QuestionText
+        v-if="index===4"
         id="bouriquet"
         v-model="questionStates[4]"
         :answer="['bouriquet', 'Bouriquet','bourriquet','Bourriquet']"
@@ -119,6 +120,7 @@ onMounted(() => {
       />
 
       <QuestionSelect
+        v-if="index===5"
         id="chien"
         v-model="questionStates[5]"
         answer="chien"
@@ -133,6 +135,7 @@ onMounted(() => {
       />
 
       <QuestionSelect
+        v-if="index===6"
         id="garfield"
         v-model="questionStates[6]"
         answer="orange"
