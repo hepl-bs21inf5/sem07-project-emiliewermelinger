@@ -109,7 +109,6 @@ onMounted(() => {
       :answer="['4','quatre']"
       text="Combien de pattes a un chat ?"
       answer-detail="Le chat est un mammifère quadrupède."
-
     />
 
     <QuestionText
