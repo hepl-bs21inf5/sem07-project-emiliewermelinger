@@ -192,7 +192,7 @@ onMounted(() => {
         Terminer
       </button>
       &nbsp;
-      <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
+      <button class="btn btn-secondary" @click.prevent="reset">Réinitialiser</button>
       <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div> <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
       <div>Debug états : {{ questionStates }}</div> <!--permet de debug facilement l'application -->
   </form>
