@@ -3,7 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import LausanneView from '../views/LausanneView.vue'
 
 const router = createRouter({
-  history: createWebHistory('/sem07-project-emiliewermelinger/'),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
