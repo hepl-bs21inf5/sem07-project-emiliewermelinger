@@ -9,16 +9,16 @@ Projet
 ### Tâche/ Temps estimé/ Temps réel
 
 - installation de l'extension et création/modification des dossiers pour le projet
-  temps estimé: 25 min/temps réel : 45 min
+  - temps estimé: 25 min/temps réel : 45 min
 
 - modification du quizz/ajout de questions et de réponses
-  temps estimé: 35 min/temps réel : 1h
+  - temps estimé: 35 min/temps réel : 1h
 
 - affichage du score/message et bouton réinitialiser à la fin du quizz
-  temps estimé: 45 min/temps réel : 1h15
+  - temps estimé: 45 min/temps réel : 1h15
 
 - modification des boutons (css)
-  temps estimé: 30 min/temps réel : 40 min
+  - temps estimé: 30 min/temps réel : 40 min
 
 ### Commentaire:
 
@@ -65,19 +65,19 @@ Commentaires ajoutés dans le code src->components->QuizForm.vue qui aide à com
 ### Tâche/ Temps estimé/ Temps réel
 
 - Créer nouveau fichier appelé QuestionRadio.vue et y ajouter le code 
-  temps estimé : 10 min/temps réel 10 min
+  - temps estimé : 10 min/temps réel 10 min
 
 - Créer une nouvelle question en faisant appel à QuestionRadio
-  temps estimé : 15 min/ temps réel 25 min
+  - temps estimé : 15 min/ temps réel 25 min
 
 - Modifier les questions afin qu'elles fassent toutes appel au code de QuestionRadio
-  temps estimé : 35 min/ temps réel 20 min
+  - temps estimé : 35 min/ temps réel 20 min
 
 - Créer le code pour les questions QuestionText
-  temps estimé : 45 min/ temps réel 1h30
+  - temps estimé : 45 min/ temps réel 1h30
 
 - Ajouter une tab Trivia et créer de document QuizTrivia.vue
-  temps estimé : 20 min/ temps réel 20 min
+  - temps estimé : 20 min/ temps réel 20 min
 
 ### Commentaire:
   Il faut bien faire attention à ce que l'on modifie dans quaque code, car si on modifie dans QuestionText.vue cela peut avoir un impact dans le code de QuizForm.vue ou alors sur le rendu visuel du site internet.
@@ -97,13 +97,13 @@ Commentaires ajoutés dans le code src->components->QuizForm.vue qui aide à com
 ### Tâche/Temps estimé/ Temps réel
 
 - Modifier le document Questionradio.vue afin d'afficher si la réponse sélectionnée et true ou false
-  temps estimé : 15 min/ temps réel 15 min
+  - temps estimé : 15 min/ temps réel 15 min
 
 - Modifier le QuizzForm.vue afin que chaque solution soit dans la liste affichée de réponses juste ou fausse/ modifier le v-model
-  temps estimé : 15 min/ temps réel: 25min
+  - temps estimé : 15 min/ temps réel: 25min
 
 - Modifier le composant QuestionText.vue afin qu'il fonctionne comme QuestionRadio.vue
-  temps estimé: 20 min/ temps réel: 20 min
+  - temps estimé: 20 min/ temps réel: 20 min
 
 
 ### Questions:
@@ -127,22 +127,22 @@ Il faut faire attention à bien modifier les v-model de chaque question et de bi
 ### Tâche/Temps estimé/ Temps réel
 
 - Créer un nouveau fichier models.ts
-  temps estimé: 5 min/ temps réel: 5 min
+  - temps estimé: 5 min/ temps réel: 5 min
 
 - Ajouter un nouveau watch sur model pour corriger l'état de la question
-  temps estimé: 15 min/ temps réel: 20 min
+  - temps estimé: 15 min/ temps réel: 20 min
 
 - Adapter le watch sur value pour qu'il mette à jour le modèle
-  temps estimé: 15min/ temps réel: 20 min
+  - temps estimé: 15min/ temps réel: 20 min
 
 - Adapter QuestionText.vue comme QuestionRadio.vue
-  temps estimé: 20 min/ temps réel: 20 min
+ -  temps estimé: 20 min/ temps réel: 20 min
 
 - Adapter la fonction submit et reset dans QuizForm.vue
-  temps estimé: 20 min/ temps réel: 45 min
+  - temps estimé: 20 min/ temps réel: 45 min
 
 - Rendre les réponses immuables
-  temps estimé: 20 min/ temps réel: 35 min
+  - temps estimé: 20 min/ temps réel: 35 min
 
 ### Questions:
 
@@ -172,10 +172,10 @@ watch(value, (newValue) => {
 ### Tâche/Temps estimé/ Temps réel
 
 - Mettre en place les réponses détaillées
-  temps estimé: 15 min/ temps réel: 25 min
+  - temps estimé: 15 min/ temps réel: 25 min
 
 - Changer les couleurs dans un composant
-  temps estimé: 15 min/ temps réel: 10 min
+  - temps estimé: 15 min/ temps réel: 10 min
 
 ### Questions:
 
@@ -183,18 +183,19 @@ watch(value, (newValue) => {
 - Ce changement permet permet de récupérer le texte associé à la valeur de la réponse (props.answer) parmi les options données dans props.options. Si aucune correspondance n'est trouvée, il retourne simplement la valeur de props.answer.
 Cela permet de simplifier le code dans le template car au lieu d'aller chercher dans chaque utilisation de pops.answer, il va le faire une fois dans le computed.
 
-1. props.options.find((option) => option.value === props.answer) 
+1. props.options.find((option) => option.value === props.answer) :
 Cette ligne cherche dans le tableau options l'option qui correspond à la valeur de props.answer.
 
-2. ?.text
+2. ?.text :
 Si une correspondance est trouvée, cela retourne le texte associé à cette option (option.text).
 
-3. ?? props.answer 
+3. ?? props.answer :
 Si aucune correspondance n'est trouvée on affiche la valeur de props.answer.
 
 ### Que se passe-t-il lorsqu'on ne met pas de valeur à answer-detail ? Est-ce satisfaisant ? Si ce n'est pas le cas, proposer une amélioration.
 - Si on ne met pas de valeur à answer-detail (comme je l'ai fait), cela reprendra la valeur définie par défaut dans nos code parents. Si comme moi, dans ces code il est défini comme '' alors il afichera seulement un petit trait.
 Ce n'est pas toujours satisfaisant car parfois nous n'avons aucune information compémentaire à ajouter et nous ne voulons pas afficher la valeur définie par défaut.
+Nous pourrions supprimer tous les answerdetail et se besoin afficher seulement une solution via une autre fonction.
 
 ### Commentaire:
 
@@ -235,64 +236,81 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 #### Comment les avez-vous implémentées ?
 
 1. QuestionSelect et QuestionCheckbox:
-  J'ai repris le code de QuestionRadio que j'ai modifié afin qu'il fonctionne de différentes manières.
+    
+    J'ai repris le code de QuestionRadio que j'ai modifié afin qu'il fonctionne de différentes manières.
 
-  QuestionSelect: J'ai dû modifier la class ainsi que les balises des questions.
+    - QuestionSelect: J'ai dû modifier la class ainsi que les balises des questions.
                   J'ai ajouté le fait que la première ligne dans la liste déroulante soit une option par défault qui affiche le text "Choisissez une réponse".
                   Je l'ai mise comme cela :value=disabled ce qui signifie qu'elle n'est pas sélectionnable.
 
-  QuestionCheckbox: J'ai dû modifier la class ainsi que les balises des questions.
+    - QuestionCheckbox: J'ai dû modifier la class ainsi que les balises des questions.
                     J'ai du faire en sorte que values soit un tableau qui stocke plusieurs réponses sélectionnées.
                     :value="option.value permet d'ajouter au tableau la valeur associée à la case sélectionée
 
-J'ai ensuite importé mes deux nouveaux documents dans QuizForm et j'ai ajouter les questions.
+    J'ai ensuite importé mes deux nouveaux documents dans QuizForm et j'ai ajouter les questions.
 
 
 2. Ajout images (seuelement dans QuizLausanne):
-  J'ai défini les images souhaitées dans questionDetail pour chaque question.
+    
+    J'ai défini les images souhaitées dans questionDetail pour chaque question.
   
-  J'ai utilisé la fonction getQuestionDetails pour récupérer les détails de chaque questions y compris les images.
+    J'ai utilisé la fonction getQuestionDetails pour récupérer les détails de chaque questions y compris les images.
 
 3. Nouvelle page Lausanne:
-  J'ai copier-coller la page QuizForm que j'ai par la suite modifiée en y ajoutant les photos.
-  J'ai aussi ajouter <div v-for="(id, idx) in questionIndices" :key="id"> afin de créer un tableau contenant les identifiants des différentes questions afin de pouvoir ensuite le réutiliser dans le titre.
+
+    J'ai copier-coller la page QuizForm que j'ai par la suite modifiée en y ajoutant les photos.
+
+    J'ai aussi ajouter " v-for="(id, idx) in questionIndices" :key="id"> "afin de créer un tableau contenant les identifiants des différentes questions afin de pouvoir ensuite le réutiliser dans le titre.
 
 4. Ordre aléatoire des questions:
-  J'ai implémenté l'ordre aléatoire des questions grâce à la méthode shuffleQuestions.
-  J'ai ajouter les indices des questionRadio dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les question à chaque fois que le code est relancé.
+
+    J'ai implémenté l'ordre aléatoire des questions grâce à la méthode shuffleQuestions.
+
+    J'ai ajouter les indices des questionRadio dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les question à chaque fois que le code est relancé.
 
 5. Ordre aléatoire des options:
-  Comme l'odre aléatoire des options de réponse ne concernent que les QuestionRadio, je l'ai directement implémenté dans QuestionRadio.vue.
-  J'ai utilisé la fonction shuffleoptions afin de mélnager les options en reprenant les value et les text. Cette fonction retourne ensuite un tableau mélangé.
-  Je réutilise un onMounted en faisant appel à shuffleoptions pour que les options de réponses soient mélangées à chawue lancement du quiz.
+
+    Comme l'odre aléatoire des options de réponse ne concernent que les QuestionRadio, je l'ai directement implémenté dans QuestionRadio.vue.
+
+    J'ai utilisé la fonction shuffleoptions afin de mélnager les options en reprenant les value et les text. Cette fonction retourne ensuite un tableau mélangé.
+
+    Je réutilise un onMounted en faisant appel à shuffleoptions pour que les options de réponses soient mélangées à chawue lancement du quiz.
 
 6. Plusieurs réponses possibles pour les QuestionText:
-  J'ai modifié le script dans QuestionText afin que answer deviennent un tableau et plus une chaîne de caractère. Pour se faire je lui ai modifié le style de answer et dans QuizForm et QuizLausanne, j'ai ajouté : avant chaque answer pour que cela soit un tableau de réponses. 
+
+    J'ai modifié le script dans QuestionText afin que answer deviennent un tableau et plus une chaîne de caractère. Pour se faire je lui ai modifié le style de answer et dans QuizForm et QuizLausanne, j'ai ajouté : avant chaque answer pour que cela soit un tableau de réponses. 
 
 
 #### Quels problèmes avez-vous rencontrés ?
 
 1. QuestionSelect: 
-  J'ai du faire attention de bien utiliser les balises select pour chaque option afin que cela s'affiche comme liste déroulante.
+
+  - J'ai du faire attention de bien utiliser les balises select pour chaque option afin que cela  s'affiche comme liste déroulante.
 
 2. QuestionCheckbox:
-  J'ai eu du mal à trouvr la fonction qui permettait de sélectionner plusieurs réponses et que les réponses soient prises en compte correctement.
+
+  - J'ai eu du mal à trouvr la fonction qui permettait de sélectionner plusieurs réponses et que  les réponses soient prises en compte correctement.
 
 3. Ajout d'images:
- J'ai eu du mal à ajouter des images car je ne prenais pas le lien direct de l'image, j'ai d'abord essayé avec le lien de la page web, puis en ajoutant l'image dans un dossier du projet mais cela ne fonctionnait pas. J'ai finalement réussi à trouver les bon liens.
+
+ - J'ai eu du mal à ajouter des images car je ne prenais pas le lien direct de l'image, j'ai      d'abord essayé avec le lien de la page web, puis en ajoutant l'image dans un dossier du projet  mais cela ne fonctionnait pas. J'ai finalement réussi à trouver les bon liens.
 
 4. Nouvelle page Lausanne:
- Je n'ai pas eu trop de soucis à créer cette nouvelle page. Le seul inconvénients était de modifier les questions comme souhaitées, puis de coder le résultat voulu après avoir appuyer sur le bouton terminer.
+
+ - Je n'ai pas eu trop de soucis à créer cette nouvelle page. Le seul inconvénients était de modifier les questions comme souhaitées, puis de coder le résultat voulu après avoir appuyer sur le bouton terminer.
 
 5. Ordre aléatoire des questions:
- J'ai du créer une nouvelle fonction qui permet de prendre chaque sorte de questions et de les mélanger. 
+
+ - J'ai du créer une nouvelle fonction qui permet de prendre chaque sorte de questions et de les mélanger. 
 
 6. Ordre aléatoire des options : 
- J'ai du ajouter une nouvelle fonction qui s'applique uniquement à questionRadio dans QuestionRadio et pas dans QuizForm.
+
+ - J'ai du ajouter une nouvelle fonction qui s'applique uniquement à questionRadio dans QuestionRadio et pas dans QuizForm.
  J'ai donc du modifier les "id" afin que cela ne soit plus des nombres mais des identifiants en mots et rajouter les index en chiffres pour les questionRadio afin que seule celles-ci soient prises pour le mélange.
 
 7. Plusieurs réponses possibles pour les QuestionText: 
-  J'ai du modifier answer afin qu'il puisse recevoir un tableau pour les réponses et non plus une chaîne de caractère. Il a fallu aussi que je le modifie dans QuizForm et dans QuizLausanne.
+
+  - J'ai du modifier answer afin qu'il puisse recevoir un tableau pour les réponses et non plus une chaîne de caractère. Il a fallu aussi que je le modifie dans QuizForm et dans QuizLausanne.
 
 #### Quelles améliorations pourriez-vous encore apporter ?
 
