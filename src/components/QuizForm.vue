@@ -115,7 +115,7 @@ onMounted(() => {
 
     <QuestionText
       id="bouriquet"
-      v-model="questionStates[3]"
+      v-model="questionStates[4]"
       answer="['bouriquet', 'Bouriquet']"
       text="Comment se nomme l'âne dans winnie l'ourson ?"
       answer-detail="Il s'appelle Bouriquet"
@@ -123,7 +123,7 @@ onMounted(() => {
 
     <QuestionSelect
       id="chien"
-      v-model="questionStates[4]"
+      v-model="questionStates[5]"
       answer="chien"
       text="Quel est l'animal qui représente Snoopy ?"
       :options="[
@@ -136,7 +136,7 @@ onMounted(() => {
     />
     <QuestionSelect
       id="garfield"
-      v-model="questionStates[5]"
+      v-model="questionStates[6]"
       answer="orange"
       text="De quelle couleur est Garfield ?"
       :options="[
@@ -150,7 +150,7 @@ onMounted(() => {
 
     <QuestionCheckbox
       id="ecole"
-      v-model="questionStates[6]"
+      v-model="questionStates[7]"
       :answer="['Allemand', 'Français','Anglais']"
       text="Quelles sont les langues obligatoires apprises à l'école en Suisse ?"
       :options="[
