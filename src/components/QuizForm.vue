@@ -132,6 +132,7 @@ onMounted(() => {
         { value: 'oiseau', text: 'Oiseau' }
       ]"
       answer-detail="Snoopy est un chien noir et blanc"
+      class="custom-select"
     />
     <QuestionSelect
       id="garfield"
@@ -145,6 +146,7 @@ onMounted(() => {
         { value: 'violet', text: 'Violet' }
       ]"
       answer-detail="Garfield est un chat orange qui adore les lasagnes"
+      class="custom-select"
     />
     <QuestionSelect
       id="winnie"
@@ -158,6 +160,7 @@ onMounted(() => {
         { value: 'souvenir', text: 'Souviens-toi' }
       ]"
       answer-detail="Winnie dit Pense, pense, pense"
+      class="custom-select"
     />
 
     <QuestionCheckbox
