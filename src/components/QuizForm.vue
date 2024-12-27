@@ -117,7 +117,7 @@ onMounted(() => {
       v-model="questionStates[4]"
       :answer="['bouriquet', 'Bouriquet','bourriquet','Bourriquet']"
       text="Comment se nomme l'âne dans winnie l'ourson ?"
-      answer-detail="Il s'appelle Bouriquet"
+      answer-detail="Il s'appelle Bourriquet"
       />
 
     <QuestionSelect
