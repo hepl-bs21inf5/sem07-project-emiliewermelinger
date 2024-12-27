@@ -60,7 +60,6 @@ onMounted(() => {
 <template>
   <form @submit="submit">
     <div v-for="index in questionIndices" :key="index">
-      <!-- Question Radio -->
       <QuestionRadio
         v-if="index===0"
         id="année"

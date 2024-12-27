@@ -99,9 +99,8 @@ onMounted(() => {
 <template>
   <form @submit="submit">
     <div v-for="(id, idx) in questionIndices" :key="id">
+      <!--Permet d'afficher un titre pour chaque question-->
       <h4>Question {{ idx + 1 }}</h4>
-
-      <!-- Question Radio -->
       <QuestionRadio
         v-if="id === 'habitants'"
         id="habitants"
@@ -190,6 +189,7 @@ onMounted(() => {
           </p>
 
         </div>
+        <!--vérification si l'image existe et si cela est le cas affichage dans les réponses-->
         <img
           v-if="getQuestionDetails(id)?.image"
           :src="getQuestionDetails(id)?.image"

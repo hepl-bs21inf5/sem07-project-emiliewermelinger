@@ -217,45 +217,85 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 
 #### Pourquoi avez-vous choisi ces améliorations ?
 
-1. J'ai choisi d'ajouter des questions de différents types (QuestionSelect et QuestionCheckbox) afin d'avoir plus de proposition d'affichage différente. 
+1. QuestionSelect et QuestionCheckbox:
+ J'ai choisi d'ajouter des questions de différents types (QuestionSelect et QuestionCheckbox) afin d'avoir plus de proposition d'affichage différente. 
 
-2. J'ai choisi d'ajouter des images lors que les solutions s'affichent sur ma page Lausanne car cela aide à comprendre de quoi on parle dans la question. J'ai décidé de ne pas les afficher tant que nous n'avons pas répondu car selon la question(dependant du quiz créer), cela peut nous donner les informations de réponse et ce n'est aps ce que je voulais.
+2.  Ajout images:
+ J'ai choisi d'ajouter des images lors que les solutions s'affichent sur ma page Lausanne car cela aide à comprendre de quoi on parle dans la question. J'ai décidé de ne pas les afficher tant que nous n'avons pas répondu car selon la question(dependant du quiz créer), cela peut nous donner les informations de réponse et ce n'est aps ce que je voulais.
 
-3. J'ai choisi de créer une nouvelle page Lausanne afin d'y implémenter mes nouvelles améliorations et de garder la page Quiz de la manière basique vue en cours pour le projet.
+3.  Nouvelle page Lausanne:
+ J'ai choisi de créer une nouvelle page Lausanne afin d'y implémenter mes nouvelles améliorations et de garder la page Quiz de la manière basique vue en cours pour le projet.
 
-4. L'ordre aléatoire des questions et des options de réponses est très utile pour l'apprentissage car cela évite que les personnes apprennent par coeur les réponses et leur emplacement. 
+4.  Ordre aléatoire des questions et options:
+ L'ordre aléatoire des questions et des options de réponses est très utile pour l'apprentissage car cela évite que les personnes apprennent par coeur les réponses et leur emplacement. 
 
-5. Avoir la possiblité de répondre de plusieurs manière aux QuestionText est très important. L'orthographe n'a pas besoin d'être parfaite et les personnes peuvent répondre de plusieurs manières possibles sans que cela les pénalises dans leur score.
+5.  Plusieurs réponses possibles pour les QuestionText:
+ Avoir la possiblité de répondre de plusieurs manière aux QuestionText est très important. L'orthographe n'a pas besoin d'être parfaite et les personnes peuvent répondre de plusieurs manières possibles sans que cela les pénalises dans leur score.
 
 #### Comment les avez-vous implémentées ?
 
-1. 
+1. QuestionSelect et QuestionCheckbox:
+  J'ai repris le code de QuestionRadio que j'ai modifié afin qu'il fonctionne de différentes manières.
 
-2. 
+  QuestionSelect: J'ai dû modifier la class ainsi que les balises des questions.
+                  J'ai ajouté le fait que la première ligne dans la liste déroulante soit une option par défault qui affiche le text "Choisissez une réponse".
+                  Je l'ai mise comme cela :value=disabled ce qui signifie qu'elle n'est pas sélectionnable.
 
-3. 
+  QuestionCheckbox: J'ai dû modifier la class ainsi que les balises des questions.
+                    J'ai du faire en sorte que values soit un tableau qui stocke plusieurs réponses sélectionnées.
+                    :value="option.value permet d'ajouter au tableau la valeur associée à la case sélectionée
 
-4. 
+J'ai ensuite importé mes deux nouveaux documents dans QuizForm et j'ai ajouter les questions.
 
-5. 
 
-6. 
+2. Ajout images (seuelement dans QuizLausanne):
+  J'ai défini les images souhaitées dans questionDetail pour chaque question.
+  
+  J'ai utilisé la fonction getQuestionDetails pour récupérer les détails de chaque questions y compris les images.
 
-7. 
+3. Nouvelle page Lausanne:
+  J'ai copier-coller la page QuizForm que j'ai par la suite modifiée en y ajoutant les photos.
+  J'ai aussi ajouter <div v-for="(id, idx) in questionIndices" :key="id"> afin de créer un tableau contenant les identifiants des différentes questions afin de pouvoir ensuite le réutiliser dans le titre.
+
+4. Ordre aléatoire des questions:
+  J'ai implémenté l'ordre aléatoire des questions grâce à la méthode shuffleQuestions.
+  J'ai ajouter les indices des questionRadio dans une variable questionIndices qui sera par la suite réutilisée dans ma fonction onMounted qui permet de mélanger les question à chaque fois que le code est relancé.
+
+5. Ordre aléatoire des options:
+  Comme l'odre aléatoire des options de réponse ne concernent que les QuestionRadio, je l'ai directement implémenté dans QuestionRadio.vue.
+  J'ai utilisé la fonction shuffleoptions afin de mélnager les options en reprenant les value et les text. Cette fonction retourne ensuite un tableau mélangé.
+  Je réutilise un onMounted en faisant appel à shuffleoptions pour que les options de réponses soient mélangées à chawue lancement du quiz.
+
+6. Plusieurs réponses possibles pour les QuestionText:
+  J'ai modifié le script dans QuestionText afin que answer deviennent un tableau et plus une chaîne de caractère. Pour se faire je lui ai modifié le style de answer et dans QuizForm et QuizLausanne, j'ai ajouté : avant chaque answer pour que cela soit un tableau de réponses. 
 
 
 #### Quels problèmes avez-vous rencontrés ?
 
 1. QuestionSelect: 
+  J'ai du faire attention de bien utiliser les balises select pour chaque option afin que cela s'affiche comme liste déroulante.
 
 2. QuestionCheckbox:
+  J'ai eu du mal à trouvr la fonction qui permettait de sélectionner plusieurs réponses et que les réponses soient prises en compte correctement.
 
-3. Ajout d'images: j'ai eu du mal à ajouter des images car je ne prenais pas le lien direct de l'image, j'ai d'abord essayé avec le lien de la page web, puis en ajoutant l'image dans un dossier du projet mais cela ne fonctionnait pas. J'ai finalement réussi à trouver les bon liens.
+3. Ajout d'images:
+ J'ai eu du mal à ajouter des images car je ne prenais pas le lien direct de l'image, j'ai d'abord essayé avec le lien de la page web, puis en ajoutant l'image dans un dossier du projet mais cela ne fonctionnait pas. J'ai finalement réussi à trouver les bon liens.
 
-4. Nouvelle page Lausanne: Je n'ai aps eu trop de soucis à créer cette nouvelle page. Le seul inconvénients était de modifier les questions comme souhaitées, puis de coder le résultat voulu après avoir appuyer sur le bouton terminer.
+4. Nouvelle page Lausanne:
+ Je n'ai pas eu trop de soucis à créer cette nouvelle page. Le seul inconvénients était de modifier les questions comme souhaitées, puis de coder le résultat voulu après avoir appuyer sur le bouton terminer.
 
-5. Ordre aléatoire des questions: j'ai du créer une nouvelle fonction qui permet de prendre chaque sorte de questions et de les mélanger.
+5. Ordre aléatoire des questions:
+ J'ai du créer une nouvelle fonction qui permet de prendre chaque sorte de questions et de les mélanger. 
+
+6. Ordre aléatoire des options : 
+ J'ai du ajouter une nouvelle fonction qui s'applique uniquement à questionRadio dans QuestionRadio et pas dans QuizForm.
+ J'ai donc du modifier les "id" afin que cela ne soit plus des nombres mais des identifiants en mots et rajouter les index en chiffres pour les questionRadio afin que seule celles-ci soient prises pour le mélange.
+
+7. Plusieurs réponses possibles pour les QuestionText: 
+  J'ai du modifier answer afin qu'il puisse recevoir un tableau pour les réponses et non plus une chaîne de caractère. Il a fallu aussi que je le modifie dans QuizForm et dans QuizLausanne.
+
 #### Quelles améliorations pourriez-vous encore apporter ?
 
+1. Je pourrai ajouter des images pour chaque questions
 
-#### Vous devoir pouvoir expliquer votre code afin de valider une amélioration.
+2. Je pourrai adapter encore plus mon code en bootstrap afin de lui dire exactement comment s'afficher (je ne l'ai asp fait car mon site me convient comme il est et il s'adapte déjà aux smartphones)
