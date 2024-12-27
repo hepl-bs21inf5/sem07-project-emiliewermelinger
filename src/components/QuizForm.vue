@@ -113,6 +113,14 @@ onMounted(() => {
 
     />
 
+    <QuestionText
+      id="bouriquet"
+      v-model="questionStates[3]"
+      answer="['bouriquet', 'Bouriquet']"
+      text="Comment se nomme l'âne dans winnie l'ourson ?"
+      answer-detail="Il s'appelle Bouriquet"
+      />
+
     <QuestionSelect
       id="chien"
       v-model="questionStates[4]"
