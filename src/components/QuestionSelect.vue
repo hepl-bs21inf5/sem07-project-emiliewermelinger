@@ -6,10 +6,7 @@
   const props = defineProps({
     id: { type: String, required: true },
     text: { type: String, required: true },
-    options: {
-      type: Array as PropType<Array<{ value: string; text: string }>>,
-      required: true,
-    },
+    options: {type: Array as PropType<Array<{ value: string; text: string }>>,required: true,},
     answerDetail:{type: String, default:''},
     answer:{type: String,required: true,},
   });

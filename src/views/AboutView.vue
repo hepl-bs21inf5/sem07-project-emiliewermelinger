@@ -2,7 +2,7 @@
   <div class="container mt-3">
     <h1>À propos</h1>
     <p>
-     Ce site internet sous forme de quiz a été créer dans le cadre d'un projet informatique.
+     Ce site internet sous forme de quiz a été crée dans le cadre d'un projet informatique.
      Il propose différents types de questions (choix multiples, questions ouvertes).
      Le but de ce quiz était de pouvoir le créer entièrement puis pas la suite de le réutiliser si besoin dans les révisions pour d'autres matières.
 
