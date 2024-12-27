@@ -6,7 +6,7 @@
   const props = defineProps({
     id: { type: String, required: true },
     text: { type: String, required: true },
-    answer:{type: String, required: true},
+    answer:{type: Array, required: true},
     answerDetail:{type: String, default:''},
     placeholder:{type: String, default : "Veuillez saisir une réponse"}
   });

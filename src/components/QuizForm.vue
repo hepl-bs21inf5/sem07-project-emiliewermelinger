@@ -107,7 +107,7 @@ onMounted(() => {
     <QuestionText
       id="chat"
       v-model="questionStates[3]"
-      answer="['4','quatre']"
+      :answer="['4','quatre']"
       text="Combien de pattes a un chat ?"
       answer-detail="Le chat est un mammifère quadrupède."
 
@@ -116,7 +116,7 @@ onMounted(() => {
     <QuestionText
       id="bouriquet"
       v-model="questionStates[4]"
-      answer="['bouriquet', 'Bouriquet']"
+      :answer="['bouriquet', 'Bouriquet']"
       text="Comment se nomme l'âne dans winnie l'ourson ?"
       answer-detail="Il s'appelle Bouriquet"
       />
