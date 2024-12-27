@@ -147,10 +147,23 @@ onMounted(() => {
       ]"
       answer-detail="Garfield est un chat orange qui adore les lasagnes"
     />
+    <QuestionSelect
+      id="winnie"
+      v-model="questionStates[7]"
+      answer="Pense, pense, pense"
+      text="Que dit winnie à haute voix en se cognant la tête ?"
+      :options="[
+        { value: 'pense', text: 'Pense, pense, pense' },
+        { value: 'réflechit', text: 'Réflechit, réflechit, réflechit' },
+        { value: 'concentrer', text: 'Concentres-toi' },
+        { value: 'souvenir', text: 'Souviens-toi' }
+      ]"
+      answer-detail="Snoopy est un chien noir et blanc"
+    />
 
     <QuestionCheckbox
       id="ecole"
-      v-model="questionStates[7]"
+      v-model="questionStates[8]"
       :answer="['Allemand', 'Français','Anglais']"
       text="Quelles sont les langues obligatoires apprises à l'école en Suisse romande ?"
       :options="[
