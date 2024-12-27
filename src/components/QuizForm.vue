@@ -158,7 +158,7 @@ onMounted(() => {
         { value: 'concentrer', text: 'Concentres-toi' },
         { value: 'souvenir', text: 'Souviens-toi' }
       ]"
-      answer-detail="Snoopy est un chien noir et blanc"
+      answer-detail="Winnie dit Pense, pense, pense"
     />
 
     <QuestionCheckbox
