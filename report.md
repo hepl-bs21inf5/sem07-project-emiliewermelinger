@@ -43,20 +43,20 @@ Commentaires ajoutés dans le code src->components->QuizForm.vue qui aide à com
 
 7. QuizForm.vue : Ce fichier est le fichier où nous codons notre quiz (questions, réponses, score). Il est repris par HomeView afin de l'afficher.
 
-#### Quelles sont les similarités et les différences entre ref et computed ?
+#### Dans le fichier QuizForm.vue: Quelles sont les similarités et les différences entre ref et computed ?
 
 - ref et computed permettent de modifier des valeurs.
   Ref permet de modifier des valeurs directement alors que computed peut être modifié via le changement d'une autre valeur.
 
-#### Que se passe-t-il lorsqu'on clique sur le bouton "Terminer" ?
+#### Dans le fichier QuizForm.vue: Que se passe-t-il lorsqu'on clique sur le bouton "Terminer" ?
 
 - Lorsque l'on appuie sur le bouton "terminer" un "pop-up" s'ouvre et nous indique notre score.
 
-#### Qu'est-ce qu'un v-model ?
+#### Dans le fichier QuizForm.vue: Qu'est-ce qu'un v-model ?
 
 - Le v-model permet une fois qu'il est défini (par question) d'y faire référence pour calculer le score et reset le quizz
 
-#### À quoi sert le :class="{ disabled: !filled }" ?
+#### Dans le fichier QuizForm.vue: À quoi sert le :class="{ disabled: !filled }" ?
 
 - :class="{ disabled: !filled }" permet de vérifier que nous avons répondu à toutes les questions. Si ce n'est pas le cas, alors nous ne pouvons pas appuyer sur le bouton.
 
@@ -318,4 +318,4 @@ J'ai choisi de laisser la valeur par défaut '' comme cela j'ai pu ajouter si je
 
 1. Je pourrai ajouter des images pour chaque questions
 
-2. Je pourrai adapter encore plus mon code en bootstrap afin de lui dire exactement comment s'afficher (je ne l'ai asp fait car mon site me convient comme il est et il s'adapte déjà aux smartphones)
+2. Je pourrai adapter encore plus mon code en bootstrap afin de lui dire exactement comment s'afficher (je ne l'ai pas fait car mon site me convient comme il est et il s'adapte déjà aux smartphones)
