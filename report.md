@@ -136,7 +136,7 @@ Il faut faire attention à bien modifier les v-model de chaque question et de bi
   - temps estimé: 15min/ temps réel: 20 min
 
 - Adapter QuestionText.vue comme QuestionRadio.vue
- -  temps estimé: 20 min/ temps réel: 20 min
+  -  temps estimé: 20 min/ temps réel: 20 min
 
 - Adapter la fonction submit et reset dans QuizForm.vue
   - temps estimé: 20 min/ temps réel: 45 min
