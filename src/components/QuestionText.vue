@@ -62,6 +62,6 @@
 </template>
 <style scoped>
   .text-danger {
-    color: orange !important;
+    color: purple !important;
   }
 </style>
