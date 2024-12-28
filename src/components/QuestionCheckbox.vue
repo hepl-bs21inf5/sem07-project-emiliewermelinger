@@ -78,5 +78,9 @@ watch(
     <p class="blockquote-footer">{{ props.answerDetail }}</p>
   </div>
 </template>
-
+<style scoped>
+.text-danger {
+  color: rgb(81, 17, 200) !important;
+}
+</style>
 

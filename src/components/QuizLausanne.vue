@@ -98,8 +98,10 @@ onMounted(() => {
 
 <template>
   <form @submit="submit">
-    <div v-for="(id, idx) in questionIndices" :key="id"> <!--id fait référence à la valeur dans le tableau et idx son index dans le tableau-->
+    <div v-for="(id, idx) in questionIndices" :key="id" class="question-container"> <!--id fait référence à la valeur dans le tableau et idx son index dans le tableau-->
+      <div class="question-number">
       <h4>Question {{ idx + 1 }}</h4> <!--Permet d'afficher un titre pour chaque question-->
+      </div>
       <QuestionRadio
         v-if="id === 'habitants'"
         id="habitants"
@@ -143,7 +145,7 @@ onMounted(() => {
         v-if="id === 'lac'"
         id="lac"
         v-model="questionStates[idx]"
-        :answer="['leman','léman','le lac léman','le lac leman','le lac Léman','le lac Leman','Léman','Leman','Le lac Léman','Le lac Leman']"
+        :answer="['leman','léman','le lac léman','le lac leman','le lac Léman','le lac Leman','Léman','Leman','Le lac Léman','Le lac Leman','lac léman','Lac Léman','lac leman','Lac leman']"
         text="Comment s'appelle le lac qui touche Lausanne ?"
       />
 
@@ -202,9 +204,6 @@ onMounted(() => {
     <button class="btn btn-secondary" @click="reset">Réinitialiser</button>
     <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div>
     <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
-
-    <div>Debug états : {{ questionStates }}</div>
-    <!--permet de debug facilement l'application -->
   </form>
 </template>
 

@@ -42,9 +42,39 @@
 }
 /* affichage des réponses dans QuizLausanne*/
 .answer-detail{
-  color: #ffc547; 
+  color: #ff47b8; 
   font-weight: bold;
   font-size: 1.1em;
 }
 
+.question-container {
+  margin-bottom: 2rem; /* Ajoute un espacement entre les questions */
+}
 
+.quiz-title {
+  font-size: 5rem; /* Taille importante pour le titre */
+  color: #a918e8; /* Couleur bleue */
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem; /* Espace sous le titre */
+}
+
+.quiz-page {
+  font-family: 'Arial', sans-serif; /* Police globale */
+  background-color: #dca5f2; /* Couleur de fond douce */
+  min-height: 100vh; /* S'étend sur toute la hauteur de la fenêtre */
+  display: flex; /* Permet de centrer le contenu */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem; /* Espacement autour */
+  margin: 0;
+}
+
+.question-number {
+  font-size: 1.2rem; /* Taille de la police */
+  font-weight: bold; /* Texte en gras */
+  font-family: 'Arial', sans-serif; /* Police spécifique */
+  color: #a918e8; /* Couleur de la numérotation */
+  margin-bottom: 0.5rem; /* Espacement en bas pour aérer */
+}

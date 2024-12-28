@@ -57,10 +57,12 @@ onMounted(() => {
   questionStates.value = new Array(questionIndices.value.length).fill(QuestionState.Empty)
 });
 </script>
-
 <template>
   <form @submit="submit">
-    <div v-for="index in questionIndices" :key="index">
+    <div v-for="(index, displayIndex) in questionIndices" :key="index" class="question-container" >
+      <div class="question-number">
+      <p> Question {{ displayIndex + 1 }}:</p> <!-- Numérotation de la question -->
+      </div>
       <QuestionRadio
         v-if="index===0"
         id="année"
@@ -194,7 +196,6 @@ onMounted(() => {
       &nbsp;
       <button class="btn btn-secondary" @click.prevent="reset">Réinitialiser</button>
       <div v-if="submitted">Score : {{ score }} / {{ totalScore }}</div> <!--affiche le score uniquement si toutes les questions ont étés soumises et corrigées-->
-      <div>Debug états : {{ questionStates }}</div> <!--permet de debug facilement l'application -->
-  </form>
+    </form>
 </template>
 

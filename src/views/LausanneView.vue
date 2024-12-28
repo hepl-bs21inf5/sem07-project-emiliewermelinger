@@ -3,8 +3,12 @@ import QuizLausanne from '@/components/QuizLausanne.vue'
 </script>
 
 <template>
-  <div class="container mt-3">
-    <h1>Connaissez-vous Lausanne?</h1>
-    <QuizLausanne />
+  <div class="quiz-page">
+    <div class="container mt-3">
+      <div class="quiz-title">
+        <h1>Connaissez-vous Lausanne?</h1>
+      </div>
+      <QuizLausanne />
+    </div>
   </div>
 </template>
