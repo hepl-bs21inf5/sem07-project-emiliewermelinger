@@ -1,0 +1,80 @@
+/* https://getbootstrap.com/docs/5.3/components/buttons/#variables */
+.btn-primary {
+  --bs-btn-color: #fafbf7;
+  --bs-btn-bg: #387d13;
+  --bs-btn-border-color: #387d13;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #0b9dd7;
+  --bs-btn-hover-border-color: #0b9dd7;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #b00aca;
+  --bs-btn-active-border-color: #b00aca;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #de1111;
+  --bs-btn-disabled-border-color: #de1111;
+}
+.btn-secondary {
+  --bs-btn-color: #fafbf7;
+  --bs-btn-bg: #f8850b;
+  --bs-btn-border-color: #f8850b;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #f507a2;
+  --bs-btn-hover-border-color: #f507a2;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #b00aca;
+  --bs-btn-active-border-color: #b00aca;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #de1111;
+  --bs-btn-disabled-border-color: #de1111;
+}
+.form-check-input:checked {
+  background-color: #7c65c6;
+  border-color: #7c65c6;
+}
+.question-image {
+  max-width: 100%; /* L'image s'ajuste à la largeur du conteneur */
+  height: auto; /*Garde les proportions de l'image*/
+  object-fit: cover;
+}
+/* affichage des réponses dans QuizLausanne*/
+.answer-detail{
+  color: #ff47b8; 
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.question-container {
+  margin-bottom: 2rem; /* Ajoute un espacement entre les questions */
+}
+
+.quiz-title {
+  font-size: 5rem; /* Taille importante pour le titre */
+  color: #a918e8; 
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem; /* Espace sous le titre */
+}
+
+.quiz-page {
+  font-family: 'Arial', sans-serif; /* Police globale */
+  background-color: #dca5f2; 
+  min-height: 100vh; /* S'étend sur toute la hauteur de la fenêtre */
+  display: flex; /* Permet de centrer le contenu */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 2rem 1rem; 
+  margin: 0;
+}
+
+.question-number {
+  font-size: 1.2rem; /* Taille de la police */
+  font-weight: bold; /* Texte en gras */
+  font-family: 'Arial', sans-serif; /* Police spécifique */
+  color: #a918e8; /* Couleur de la numérotation */
+  margin-bottom: 0.5rem; 
+}
